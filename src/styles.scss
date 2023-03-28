@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Ubuntu-Light';
+  src: url(./assets/fonts/Ubuntu/Ubuntu-Light.ttf);
+}
+@font-face {
+  font-family: 'Ubuntu-Medium';
+  src: url(./assets/fonts/Ubuntu/Ubuntu-Medium.ttf);
+}
+@font-face {
+  font-family: 'Ubuntu-Regular';
+  src: url(./assets/fonts/Ubuntu/Ubuntu-Regular.ttf);
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url(./assets/fonts/Open_Sans/static/OpenSans/OpenSans-Medium.ttf);
+}
+@font-face {
+  font-family: 'OpenSans-Condensed';
+  src: url(./assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-Bold.ttf);
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  position: relative;
+}
+
+

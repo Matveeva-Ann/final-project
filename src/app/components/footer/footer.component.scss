@@ -1,0 +1,196 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.footer {
+  @include size(100%, auto);
+  border-top: 4px solid $mainColor;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 15px;
+  font-family: "OpenSans";
+  margin-top: 100px;
+  position: relative;
+  &-unit-mobile{
+    @media (max-width: 800px){
+      width: 100%;
+      padding: 0;
+
+    }
+  }
+  &-unit {
+    width: 20%;
+    margin-bottom: 30px;
+    padding: 10px;
+    @media (max-width: 1100px) {
+      margin-bottom: 10px;
+      &:nth-child(1),
+      &:nth-child(2) {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        width: 30%;
+      }
+      &:nth-child(6),
+      &:nth-child(7),
+      &:nth-child(8),
+      &:nth-child(9) {
+        width: auto;
+      }
+    }
+    @media (max-width: 800px){
+    
+        width: 100%;
+        padding: 0;
+      
+      &:nth-child(1){
+        order: 1;
+      }
+      &:nth-child(8){
+        order: 2;
+        display: flex;
+        justify-content: center;
+      }
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(7){
+        order: 3;
+        display: flex;
+        justify-content: center;
+      }
+      &:nth-child(6),
+      &:nth-child(9){
+        order: 4;
+      }
+      &:nth-child(9){
+        position: absolute;
+        bottom: 60px;
+        right: 20px;
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    padding: 10px 10px 50px;
+  }
+  &-img {
+    @include size(136px, 51px);
+    @media (max-width: 1200px) {
+      @include size(110px, 42px);
+    }
+  }
+  &-list {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    @media (max-width: 1200px) {
+      font-size: 14px;
+      padding: 10px;
+      @include size(177px, 27px);
+    }
+    & > li {
+      cursor: pointer;
+      list-style: none;
+    }
+  }
+}
+li {
+  @extend %textSelection;
+}
+
+.pickUpPoint,
+.order,
+.workSchedule {
+  &-title {
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 5px;
+    @extend %textSelection;
+  }
+  &-text {
+    font-size: 13px;
+    display: block;
+    list-style: none;
+    text-align: center;
+    color: $black;
+    text-decoration: none;
+    color: $darkGray;
+    @extend %textSelection;
+  }
+}
+.updateDate {
+  font-size: 12px;
+  color: $darkGray;
+}
+.cards {
+  display: flex;
+  list-style: none;
+  gap: 5px;
+  width: 100%;
+  & > li {
+    @include size(69px, 39px);
+    border: 1px solid $gray;
+    border-radius: 5px;
+    @extend %flexCenter;
+    @media (max-width: 1200px) {
+      @include size(56px, 33px);
+    }
+  }
+}
+.socialNetworks {
+  display: flex;
+  &-title {
+    margin-right: 20px;
+    font-size: 12px;
+    line-height: 34px;
+    @media (max-width: 800px){
+      display: none;
+    }
+  }
+  &-list {
+    list-style: none;
+    display: flex;
+    gap: 6px;
+    & > li {
+      @include size(40px, 40px);
+      @extend %flexCenter;
+      background-color: $mainColor;
+      border-radius: 6px;
+      cursor: pointer;
+      @media (max-width: 1100px) {
+        @include size(35px, 35px);
+      }
+    }
+  }
+}
+.site {
+  font-size: 12px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  margin-right: 5px;
+  line-height: 12px;
+
+  &:hover {
+    color: $mainColor;
+  }
+  &-img {
+    width: 75px;
+    height: 18px;
+  }
+}
+.create-site {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  @media (max-width: 800px) {
+    align-self: flex-end;
+  }
+}

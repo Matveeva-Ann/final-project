@@ -1,0 +1,78 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.container {
+  @extend %flexCenter;
+  position: absolute;
+  background-color: $blackOpacity;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: "OpenSans";
+}
+.content {
+  width: 600px;
+  height: 400px;
+  background-color: $white;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  &-title {
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+  &-text {
+    color: $darkGray;
+    font-size: 16px;
+    text-align: center;
+    max-width: 390px;
+  }
+  &-input {
+    @extend %textSelection;
+    @include size(480px, 56px);
+    padding: 0 20px;
+    border-radius: 8px;
+    border: 1px solid $gray;
+    font-size: 17px;
+    &:placeholder-shown {
+      font-size: 18px;
+      user-select: none;
+    }
+    &:focus {
+      border: 1px solid $mainColor;
+      outline: none;
+    }
+  }
+}
+.btn {
+  cursor: pointer;
+  background-color: $mainColor;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  &:active {
+    transform: translate3d(0, 2px, 0);
+  }
+  &:hover {
+    background-color: $white;
+    border: 2px solid $mainColor;
+  }
+}
+
+.cross {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  &:hover {
+    fill: $mainColor;
+  }
+}

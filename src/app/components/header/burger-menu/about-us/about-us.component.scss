@@ -1,0 +1,215 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.container {
+  width: 1020px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  font-family: "OpenSans";
+}
+.title,
+.advantages,
+.question {
+  @include size(160px, 60px);
+  @extend %textSelection;
+  text-align: center;
+  border-top: 5px solid $mainColor;
+  font-size: 39px;
+}
+.subtitle {
+  font-size: 34px;
+  font-weight: 700;
+  padding: 0 50px;
+}
+.text {
+  @extend %textSelection;
+  font-size: 18px;
+  color: $darkGray;
+  padding: 0 50px;
+}
+.list {
+  @include size(100%, auto);
+  list-style: none;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.listStyle-elem::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid $mainColor;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.listStyle-elem {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: $mainColor;
+  position: relative;
+  margin-right: 13px;
+  z-index: -1;
+}
+.article {
+  display: flex;
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  @include size(100%, auto);
+  &-img {
+    @include size(480px, 480px);
+    border-radius: 10px;
+  }
+  &-textWrapper {
+    @include size(480px, 480px);
+    @extend %flexCenter;
+    flex-direction: column;
+  }
+  &-title {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 45px;
+  }
+  &-text {
+    font-size: 18px;
+    color: $darkGrayText;
+  }
+}
+.advantages,
+.question {
+  border: none;
+  width: 100%;
+}
+
+.slide-wrapper {
+  @include size(100%, auto);
+  display: flex;
+  justify-content: space-between;
+}
+.slide {
+  @include size(25%, auto);
+  border-right: 1px solid $gray;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-img {
+    @include size(84px, 84px);
+    @extend %flexCenter;
+    border-radius: 10px;
+    background-color: $mainColor;
+    margin-bottom: 25px;
+  }
+  &-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  &-text {
+    font-size: 16px;
+    color: $darkGrayText;
+  }
+}
+.question {
+  margin-top: 80px;
+
+  &-unit {
+    border-top: 1px solid $gray;
+    width: 100%;
+    height: auto;
+    padding-top: 30px;
+    &:last-child {
+      border-bottom: 1px solid $gray;
+    }
+  }
+  &-unit-text {
+    cursor: pointer;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: $darkGrayText;
+    position: relative;
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-left: 2px solid #5a5a5a;
+      border-bottom: 2px solid #5a5a5a;
+      transform: rotate(-45deg);
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      transition: 0.35s;
+    }
+    &:hover {
+      color: $black;
+    }
+  }
+  &-unit-answer {
+    height: 0px;
+    overflow: hidden;
+    color: $darkGrayText;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    list-style: none;
+    counter-reset: ol-numbers;
+    transition-duration: 1s;
+
+    & > li {
+      position: relative;
+      padding: 0 0 0 50px;
+      &::before {
+        counter-increment: ol-numbers;
+        content: "0" counter(ol-numbers);
+        position: absolute;
+        left: 0;
+        top: 5px;
+        color: $black;
+        font-size: 16px;
+      }
+    }
+  }
+}
+#firstQuestion,
+#secondQuestion,
+#thirdQuestion,
+#fourthQuestion {
+  display: none;
+}
+#firstQuestion:checked ~ .question-unit-answer {
+  height: 200px;
+}
+#secondQuestion:checked + .question-unit-text::after, 
+#firstQuestion:checked + .question-unit-text::after,
+#thirdQuestion:checked + .question-unit-text::after,
+#fourthQuestion:checked + .question-unit-text::after {
+  transform: rotate(135deg);
+}
+#secondQuestion:checked ~ .question-unit-answer {
+  height: 120px;
+}
+#thirdQuestion:checked ~ .question-unit-answer {
+  height: 90px;
+}
+#fourthQuestion:checked ~ .question-unit-answer {
+  height: 90px;
+}
+.weight {
+  font-weight: 700;
+}

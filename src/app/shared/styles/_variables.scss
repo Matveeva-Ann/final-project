@@ -1,0 +1,24 @@
+$mainColor: #b5d8f7;
+$black: #000;
+$blackOpacity: rgba(0, 0, 0, 0.755);
+$white:#fff;
+$gray: #DCDCDC;
+$darkGray: #696969;
+$darkGrayText: #5a5a5a;
+$green: #27ae60;
+$yellow: #f2c94c;
+$lightGray: rgba(255,255,255,.4);
+
+
+%flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%textSelection{
+  &::selection {
+    background-color: $mainColor;
+    color: $white;
+  }
+}

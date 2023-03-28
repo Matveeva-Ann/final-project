@@ -1,0 +1,102 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.container {
+  width: 100%;
+  max-height: 175px;
+  background-color: $mainColor;
+  margin-top: 20px;
+  display: flex;
+  font-family: "OpenSans";
+  padding: 25px;
+  @media (max-width: 1200px) {
+    min-height: 210px;
+    padding: 20px 0;
+    justify-content: center;
+  }
+  @media (max-width: 770px) {
+    display: none;
+  }
+}
+.bloc-wrapper {
+  @extend %flexCenter;
+  @include size(33%, 100%);
+  padding: 10px;
+  border-right: 1px solid $lightGray;
+  @media (max-width: 1200px) {
+    @include size(25%, auto);
+  }
+  &:last-child {
+    border: none;
+  }
+}
+.bloc-first {
+  @include size(350px, 87px);
+  @media (max-width: 1200px) {
+    @include size(25%, 162px);
+  }
+  &-btn {
+    @include size(190px, 54px);
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background: $white;
+    transition: 0.35s;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    padding: 16px 22px;
+    border-radius: 10px;
+    @media (max-width: 1200px) {
+      margin-top: 15px;
+      @include size(173px, 54px);
+      font-size: 14px;
+    }
+    &:hover {
+      background-color: transparent;
+      border: 2px solid $white;
+    }
+  }
+}
+.bloc-second {
+  @include size(350px, 81px);
+  @media (max-width: 1200px) {
+    @include size(25%, 166px);
+  }
+}
+.bloc-third {
+  @include size(350px, 94px);
+  @media (max-width: 1200px) {
+    @include size(25%, 169px);
+  }
+}
+.bloc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+  }
+  &-img {
+    height: 100%;
+    @media (max-width: 1200px) {
+      max-width: 135px;
+      max-height: 94px;
+    }
+  }
+  &-text {
+    max-width: 230px;
+    font-size: 18px;
+    text-align: center;
+    @media (max-width: 1200px) {
+      font-size: 16px;
+    }
+  }
+}
+
+.bold {
+  font-weight: 700;
+}

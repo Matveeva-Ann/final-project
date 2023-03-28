@@ -1,0 +1,79 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.container {
+  font-family: "OpenSans";
+  @include size(70%, auto);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  font-size: 18px;
+}
+.title {
+  font-size: 34px;
+  font-weight: 700;
+  text-align: center;
+}
+.subtitle {
+  font-weight: 700;
+}
+.text {
+  color: $darkGrayText;
+  line-height: 30px;
+}
+.list {
+  list-style: none;
+  counter-reset: ol-numbers;
+  & > li {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 0 0 0 50px;
+    &::before {
+      counter-increment: ol-numbers;
+      content: "0" counter(ol-numbers);
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: $black;
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+}
+.hiddenText-title {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+.bold {
+  font-weight: 700;
+  color: $black;
+}
+.learnMore,
+.rollUp {
+  color: $mainColor;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-left: 3px solid $mainColor;
+    border-bottom: 3px solid $mainColor;
+    transform: rotate(-45deg);
+    position: relative;
+    top: -2px;
+    left: 15px;
+  }
+}
+.rollUp {
+  margin-top: 20px;
+  display: block;
+  &::after {
+    transform: rotate(-225deg);
+    top: 3px;
+    left: 15px;
+  }
+}
