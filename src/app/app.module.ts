@@ -10,12 +10,15 @@ import { FooterComponent } from './components/footer/footer.component';
 import { WillCallComponent } from './components/header/will-call/will-call.component';
 import { MainComponent } from './components/main/main.component';
 import { BurgerMenuComponent } from './components/header/burger-menu/burger-menu.component';
-import { DeliveryPaymentComponent } from './components/header/burger-menu/delivery-payment/delivery-payment.component';
-import { AboutUsComponent } from './components/header/burger-menu/about-us/about-us.component';
-import { PromotionsComponent } from './components/header/burger-menu/promotions/promotions.component';
+import { DeliveryPaymentComponent } from './pages/delivery-payment/delivery-payment.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { PromotionsComponent } from './pages/promotions/promotions.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InfoComponent } from './pages/home/info/info.component';
 import { ArticleComponent } from './pages/home/article/article.component';
+import { ModalWindowComponent } from './shared/components/modal-window/modal-window.component';
+import { NavPagesComponent } from './components/header/nav-pages/nav-pages.component';
+import { MapComponent } from './pages/delivery-payment/map/map.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { ArticleComponent } from './pages/home/article/article.component';
     PromotionsComponent,
     HomeComponent,
     InfoComponent,
-    ArticleComponent
+    ArticleComponent,
+    ModalWindowComponent,
+    NavPagesComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

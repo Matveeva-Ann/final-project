@@ -1,55 +1,30 @@
 <div class="container">
-  <div class="logo" [routerLink]="['home']">
+  
+  <div class="logo" [routerLink]="['']">
     <div class="logo-img"></div>
   </div>
-  <nav class="pages">
-    <a class="page btn">
-      <img src="/assets/img/nav-img-gift.svg" alt="" class="page-img">
-      <span class="page-title">Акції</span>
-    </a>
-    <a class="page">
-      <img src="/assets/img/nav-img-rolls.svg" alt="" class="page-img">
-      <span class="page-title">Роли</span>
-    </a>
-    <a class="page">
-      <img src="/assets/img/nav-img-sets.svg" alt="" class="page-img">
-      <span class="page-title">Сети</span>
-    </a>
-    <a class="page">
-      <img src="/assets/img/nav-img-drinks.svg" alt="" class="page-img">
-      <span class="page-title">Напої</span>
-    </a>
-    <a class="page">
-      <img src="/assets/img/icon.svg" alt="" class="page-img">
-      <span class="page-title">Соуси</span>
-    </a>
-    <!-- [routerLink]="[ '/path', routeParam ]" -->
-  </nav>
-  <div class="burger">
-    <img src="/assets/img/menu.svg" alt="menu" class="burger-menu-icon" (click)="menu=true">
-    <div class="burger-menu" *ngIf="menu">
-      <img src="/assets/img/cross.svg" alt="menu" class="burger-menu-icon burger-menu-img" (click)="menu=false">
-      <ul class="burger-menu-list">
-        <li class="burger-menu-item" [routerLink]="[ 'delivery and payment']" (click)="menu=false">Доставка та оплата
-        </li>
-        <li class="burger-menu-item" [routerLink]="[ 'aboutUs']" (click)="menu=false">Про нас</li>
-        <li class="burger-menu-item" [routerLink]="[ 'promotions']" (click)="menu=false">Акції</li>
-      </ul>
-    </div>
-  </div>
+
+  <app-nav-pages></app-nav-pages>
+  <app-burger-menu></app-burger-menu>
+
   <div class="callYou">
-    <div class="callYou-wrapper">
+    <div class="callYou-wrapper" (click)="willCall = true">
       <div class="callYou-img"></div>
-      <p class="callYou-text" (click)="weWillCall()">ми зателефонуємо</p>
+      <span class="callYou-text">ми зателефонуємо</span>
     </div>
   </div>
+
   <div class="telephoneHours">
-    <a href="tel:(097) 878 08 37" class="telephoneNumber">(097) 878 08 37</a>
-    <p class="hoursWork">Працюємо з <span class="black">11:00</span> до <span class="black"> 22:30</span></p>
+    <div class="telephoneHours-wrapper">
+      <a href="tel:(097) 878 08 37" class="telephoneNumber">(097) 878 08 37</a>
+      <p class="hoursWork">Працюємо з <span class="black">11:00</span> до <span class="black"> 22:30</span></p>
+    </div>
   </div>
+
   <div class="enter">
     <img src="/assets/img/user.svg" alt="user" class="enter-icon">
   </div>
+
   <div class="basket">
     <div class="basket-wrapper">
       <img class="basket-wrapper-img" src="/assets/img/basket.svg" alt="basket">
@@ -57,6 +32,7 @@
     </div>
     <span class="basket-text">0 грн.</span>
   </div>
+
 </div>
 
-<app-will-call [willCall]="willCall" (close)="closeWindow($event)"></app-will-call>
+<app-will-call *ngIf="willCall" [willCall] = 'willCall' (closeFormCall)="closeFormCall($event)"></app-will-call>

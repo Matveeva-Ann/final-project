@@ -2,7 +2,7 @@
 @import "/src/app/shared/styles/mixins";
 
 .container {
-  font-family: "OpenSans";
+
   @include size(70%, auto);
   margin: 0 auto;
   display: flex;

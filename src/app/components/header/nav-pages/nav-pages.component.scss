@@ -1,0 +1,50 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.pages {
+  display: flex;
+  margin-left: 15px;
+  background-color: $white;
+  @media (max-width: 1200px) {
+    @include size(100%, 60px);
+    position: fixed;
+    border-top: 1px solid $gray;
+    justify-content: space-around;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px 0;
+    margin-left: 0px;
+
+  }
+}
+.page {
+  @include size(75px, 70px);
+  @extend %flexCenter;
+  margin-left: 4px;
+  flex-direction: column;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  text-decoration: none;
+  color: $black;
+  transition-duration: 0.35s;
+  @media (max-width: 1200px) {
+    @include size(100%, 50px);
+    border: none;
+  }
+  &:hover {
+    border: 2px solid $mainColor;
+    @media (max-width: 1200px) {
+      border: none;
+    }
+  }
+  &-img {
+    @include size(28px, 30px);
+  }
+  &-title {
+    font-size: 14px;
+    margin-top: 4px;
+    line-height: 1em;
+  }
+}

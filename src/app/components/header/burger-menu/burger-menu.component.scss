@@ -1,0 +1,66 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+
+.burger {
+  position: relative;
+  margin-left: 20px;
+  @media (max-width: 1200px) {
+    margin-left: 0;
+  }
+  &-menu-icon {
+    @include size(50px, 48px);
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 9px;
+    @media (max-width: 1200px) {
+      border: none;
+      @include size(30px, 34px);
+
+      padding: 0px;
+    }
+    &:hover {
+      border: 2px solid $mainColor;
+      @media (max-width: 1200px) {
+        border: none;
+      }
+    }
+  }
+}
+
+.burger-menu {
+  @include size(230px, 250px);
+  position: absolute;
+  border-radius: 5px;
+  border: 2px solid $mainColor;
+  background-color: $white;
+  padding: 20px;
+  top: -15px;
+  left: -20px;
+  &-cross {
+    border: none;
+    @include size(45px, 45px);
+    padding: 9px;
+    &:hover {
+      border: none;
+    }
+  }
+  &-item {
+    cursor: pointer;
+    list-style: none;
+    margin-top: 4px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 9px;
+    transition-duration: 0.5s;
+    &:hover {
+      border: 2px solid $mainColor;
+    }
+  }
+}
+
+.black {
+  color: $black;
+  @extend %textSelection;
+}

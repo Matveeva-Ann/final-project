@@ -1,11 +1,18 @@
-
-.container{
+.container {
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.main{
-  flex-grow: 1;
+.main {
   margin-top: 95px;
+  flex-grow: 1;
+  @media (max-width: 1200px) {
+    margin-top: 60px;
+  }
+}
+app-footer{
+  @media (max-width: 1200px) {
+    margin-bottom: 60px;
+  }
 }

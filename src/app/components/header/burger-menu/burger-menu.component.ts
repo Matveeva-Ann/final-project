@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./burger-menu.component.scss']
 })
 export class BurgerMenuComponent {
+  willCall = false;
+  menu = false;
+  weWillCall(){
+    this.willCall = true;
+  }
+  closeWindow(event:void){
+    this.willCall = false;
+  }
+
 
 }

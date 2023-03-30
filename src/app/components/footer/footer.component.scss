@@ -8,76 +8,59 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 15px;
-  font-family: "OpenSans";
-  margin-top: 100px;
   position: relative;
-  &-unit-mobile{
-    @media (max-width: 800px){
+  &-unit-mobile {
+    @media (max-width: 800px) {
       width: 100%;
       padding: 0;
-
     }
   }
   &-unit {
     width: 20%;
-    margin-bottom: 30px;
     padding: 10px;
-    @media (max-width: 1100px) {
+    @media (max-width: 1100px) and (min-width: 800px) {
       margin-bottom: 10px;
-      &:nth-child(1),
-      &:nth-child(2) {
+      &:nth-child(-n + 9) {
+        width: auto;
+      }
+      &:nth-child(-n + 5) {
+        width: 30%;
+      }
+      &:nth-child(-n + 2) {
         width: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
       }
-      &:nth-child(3),
-      &:nth-child(4),
-      &:nth-child(5) {
-        width: 30%;
-      }
-      &:nth-child(6),
-      &:nth-child(7),
-      &:nth-child(8),
-      &:nth-child(9) {
-        width: auto;
-      }
     }
-    @media (max-width: 800px){
-    
-        width: 100%;
-        padding: 0;
-      
-      &:nth-child(1){
+    @media (max-width: 800px) {
+      width: 100%;
+      padding: 0;
+      margin: 6px 0;
+      display: flex;
+      justify-content: center;
+      &:nth-child(-n + 7) {
+        order: 3;
+      }
+      &:nth-child(1) {
         order: 1;
       }
-      &:nth-child(8){
+      &:nth-child(8) {
         order: 2;
-        display: flex;
-        justify-content: center;
-      }
-      &:nth-child(2),
-      &:nth-child(3),
-      &:nth-child(4),
-      &:nth-child(5),
-      &:nth-child(7){
-        order: 3;
-        display: flex;
-        justify-content: center;
       }
       &:nth-child(6),
-      &:nth-child(9){
+      &:nth-child(9) {
         order: 4;
       }
-      &:nth-child(9){
+      &:nth-child(9) {
         position: absolute;
-        bottom: 60px;
-        right: 20px;
+        bottom: 0px;
+        right: 10px;
       }
     }
   }
   @media (max-width: 1200px) {
-    padding: 10px 10px 50px;
+    padding: 15px;
   }
   &-img {
     @include size(136px, 51px);
@@ -88,7 +71,7 @@
   &-list {
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 16px;
     @media (max-width: 1200px) {
       font-size: 14px;
@@ -98,6 +81,10 @@
     & > li {
       cursor: pointer;
       list-style: none;
+      transition: all 0.35s;
+      &:hover {
+        color: $mainColor;
+      }
     }
   }
 }
@@ -129,12 +116,16 @@ li {
 .updateDate {
   font-size: 12px;
   color: $darkGray;
+  @media (max-width: 800px) {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
 }
 .cards {
   display: flex;
   list-style: none;
   gap: 5px;
-  width: 100%;
   & > li {
     @include size(69px, 39px);
     border: 1px solid $gray;
@@ -151,7 +142,7 @@ li {
     margin-right: 20px;
     font-size: 12px;
     line-height: 34px;
-    @media (max-width: 800px){
+    @media (max-width: 800px) {
       display: none;
     }
   }

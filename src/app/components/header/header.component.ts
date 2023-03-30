@@ -8,14 +8,11 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   willCall = false;
   menu = false;
-  weWillCall(){
-    this.willCall = true;
-  }
-  closeWindow(event:void){
-    this.willCall = false;
+
+  closeFormCall(event:any):void{
+    this.willCall=false;
   }
 
-
-
+  
 
 }

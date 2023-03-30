@@ -2,19 +2,29 @@
 @import "/src/app/shared/styles/mixins";
 
 .container {
-  width: 1020px;
+  width: 65%;
   margin: 60px auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
   align-items: center;
-  font-family: "OpenSans";
+  @media (max-width: 1200px) {
+    width: 770px;
+  }
+  @media (max-width: 990px) {
+    width: 690px;
+  }
+  @media (max-width: 770px) {
+    width: 510px;
+  }
+  @media (max-width: 570px) {
+    width: 100%;
+    padding: 0 15px;
+  }
 }
 .title,
 .advantages,
 .question {
-  @include size(160px, 60px);
-  @extend %textSelection;
   text-align: center;
   border-top: 5px solid $mainColor;
   font-size: 39px;
@@ -22,13 +32,11 @@
 .subtitle {
   font-size: 34px;
   font-weight: 700;
-  padding: 0 50px;
 }
 .text {
-  @extend %textSelection;
   font-size: 18px;
   color: $darkGray;
-  padding: 0 50px;
+  line-height: 1.5em;
 }
 .list {
   @include size(100%, auto);
@@ -66,36 +74,65 @@
   margin-top: 80px;
   display: flex;
   justify-content: space-between;
-  @include size(100%, auto);
+  @media (max-width: 990px) {
+    flex-direction: column;
+    margin-top: 0px;
+  }
   &-img {
-    @include size(480px, 480px);
+    @include size(50%, auto);
     border-radius: 10px;
+    margin-right: -30px;
+    margin-left: -25px;
+    @media (max-width: 1200px) {
+      @include size(370px, 370px);
+    }
+    @media (max-width: 990px) {
+      @include size(100%, auto);
+      margin-right: 0px;
+      margin-left: 0px;
+    }
   }
   &-textWrapper {
-    @include size(480px, 480px);
-    @extend %flexCenter;
+    @include size(50%, auto);
+    display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 15px;
+    margin-right: -30px;
+    margin-left: -25px;
+    @media (max-width: 1200px) {
+      @include size(55%, auto);
+    }
+    @media (max-width: 990px) {
+      @include size(100%, auto);
+      margin: 20px 0;
+    }
   }
   &-title {
-    font-size: 34px;
+    font-size: 30px;
     font-weight: 700;
     margin-bottom: 45px;
+    line-height: 1.4em;
+    @media (max-width: 990px) {
+      margin-bottom: 25px;
+    }
   }
   &-text {
     font-size: 18px;
     color: $darkGrayText;
+    line-height: 1.5em;
   }
 }
 .advantages,
 .question {
   border: none;
-  width: 100%;
 }
-
 .slide-wrapper {
   @include size(100%, auto);
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .slide {
   @include size(25%, auto);
@@ -105,12 +142,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  &:last-child {
+    border: none;
+  }
+  @media (max-width: 990px) {
+    @include size(50%, auto);
+    &:nth-child(2) {
+      border: none;
+    }
+  }
+  @media (max-width: 570px) {
+    @include size(100%, auto);
+    border: none;
+  }
   &-img {
     @include size(84px, 84px);
-    @extend %flexCenter;
     border-radius: 10px;
     background-color: $mainColor;
     margin-bottom: 25px;
+    @extend %flexCenter;
   }
   &-title {
     font-size: 20px;
@@ -195,7 +245,7 @@
 #firstQuestion:checked ~ .question-unit-answer {
   height: 200px;
 }
-#secondQuestion:checked + .question-unit-text::after, 
+#secondQuestion:checked + .question-unit-text::after,
 #firstQuestion:checked + .question-unit-text::after,
 #thirdQuestion:checked + .question-unit-text::after,
 #fourthQuestion:checked + .question-unit-text::after {

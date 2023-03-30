@@ -1,27 +1,9 @@
 @import "/src/app/shared/styles/variables";
 @import "/src/app/shared/styles/mixins";
 
-.container {
-  @extend %flexCenter;
-  position: absolute;
-  background-color: $blackOpacity;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  font-family: "OpenSans";
-}
 .content {
-  width: 600px;
-  height: 400px;
-  background-color: $white;
-  border-radius: 10px;
-  position: relative;
-  display: flex;
+  @extend %flexCenter;
   flex-direction: column;
-  align-items: center;
   gap: 15px;
   &-title {
     font-size: 30px;
@@ -32,10 +14,14 @@
     font-size: 16px;
     text-align: center;
     max-width: 390px;
+    margin-bottom: 20px;
+   
   }
   &-input {
     @extend %textSelection;
-    @include size(480px, 56px);
+    // @include size(480px, 56px);
+    width: 100%;
+    height: 56px;
     padding: 0 20px;
     border-radius: 8px;
     border: 1px solid $gray;
@@ -67,12 +53,4 @@
   }
 }
 
-.cross {
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  &:hover {
-    fill: $mainColor;
-  }
-}
+

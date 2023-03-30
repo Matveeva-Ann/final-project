@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="content" (click)="stopPropagation($event)">
+    <span class="cross" (click)="closeWindow()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 96 96" fill="gray" class="cross">
+        <use href="/assets/img/cross.svg#root"/>
+      </svg>
+    </span>
+    <ng-content></ng-content>
+  </div>
+</div>

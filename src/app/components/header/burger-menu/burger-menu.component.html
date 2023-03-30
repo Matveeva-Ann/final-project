@@ -1,1 +1,11 @@
-<p>burger-menu works!</p>
+<div class="burger">
+  <img src="/assets/img/menu.svg" alt="menu" class="burger-menu-icon" (click)="menu=true">
+  <div class="burger-menu" *ngIf="menu">
+    <img src="/assets/img/cross.svg" alt="menu" class="burger-menu-icon burger-menu-cross" (click)="menu=false">
+    <ul class="burger-menu-list">
+      <li class="burger-menu-item" [routerLink]="[ 'deliveryPayment']" (click)="menu=false">Доставка та оплата</li>
+      <li class="burger-menu-item" [routerLink]="[ 'aboutUs']" (click)="menu=false">Про нас</li>
+      <li class="burger-menu-item" [routerLink]="[ 'promotions']" (click)="menu=false">Акції</li>
+    </ul>
+  </div>
+</div>
