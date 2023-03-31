@@ -1,0 +1,9 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+.container {
+  width: 100%;
+  height: 100%;
+}
+.addPromotion {
+  @extend %btnStyle;
+}

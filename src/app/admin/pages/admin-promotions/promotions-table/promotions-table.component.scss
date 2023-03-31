@@ -1,0 +1,41 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  color: $darkGrayText;
+}
+
+.header-th {
+  padding: 20px 10px 20px 0px;
+  border-bottom: 3px solid $mainColor;
+  text-align: start;
+}
+.body-td {
+  padding: 20px 5px;
+  text-align: start;
+  border-bottom: 1px solid $gray;
+  &-img {
+    width: 120px;
+    height: 70px;
+  }
+  &-btn {
+    border: none;
+    background-color: transparent;
+    color: $mainColor;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.1s;
+    padding: 5px;
+    font-size: 16px;
+    user-select: none;
+    &:hover {
+      opacity: 0.8;
+    }
+    &:active {
+      transform: translate3d(0, 0.1em, 0);
+    }
+  }
+}

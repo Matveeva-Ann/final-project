@@ -38,6 +38,8 @@
   padding: 20px;
   top: -15px;
   left: -20px;
+  transition: all 1s;
+
   &-cross {
     border: none;
     @include size(45px, 45px);
@@ -45,6 +47,7 @@
     &:hover {
       border: none;
     }
+  
   }
   &-item {
     cursor: pointer;

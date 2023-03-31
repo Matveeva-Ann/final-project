@@ -1,0 +1,39 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.container{
+  width: 100%;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  user-select: none;
+  &-item {
+    padding: 20px 25px;
+    color: $darkGrayText;
+    list-style: none;
+    border-bottom: 1px solid $gray;
+    border-top: 1px solid $gray;
+    border-right: 1px solid $gray;
+    cursor: pointer;
+    transition-duration: 0.1s;
+  }
+}
+.btn{
+  @extend %btnStyle;
+  padding: 15px 30px;
+  margin: 20px;
+  background-color: $mainColor;
+  &:hover{
+    background-color: transparent;
+  }
+}
+
+.active{
+  border-top: 3px solid $mainColor;
+  border-right: 1px solid transparent;
+  font-weight: 700;
+  color: $black;
+}

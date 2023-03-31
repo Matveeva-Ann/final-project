@@ -1,0 +1,56 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.container{
+  width: 50%;
+  margin-top: 20px;
+  @media (max-width: 1200px) {
+    width: 60%;
+  }
+  @media (max-width: 990px) {
+    width: 70%;
+  }
+  @media (max-width: 770px) {
+    width: 100%;
+  }
+}
+.categoryForm{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.input{
+  width: calc(50% - 10px);
+  padding: 10px;
+  border: 1px solid $gray;
+  border-radius: 10px;
+  color: $darkGrayText;
+  font-size: 16px;
+  &:focus{
+    outline: none;
+  }
+}
+.inputTextarea{
+  width: calc(100% - 10px);
+  min-height: 150px;
+  padding: 10px;
+  border: 1px solid $gray;
+  resize: both;
+  &:focus{
+    outline: none;
+  }
+}
+.inputFile{
+  width: 100%;
+  padding: 10px;
+}
+.save-btn{
+  @extend %btnStyle;
+  border: 2px solid $mainColor;
+  background-color: $mainColor;
+  padding: 12px 30px;
+  font-size: 15px;
+  &:hover {
+    background-color: transparent;
+  }
+}

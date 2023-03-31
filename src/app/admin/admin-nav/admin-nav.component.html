@@ -1,0 +1,9 @@
+<div class="container">
+  <ul class="list">
+    <li class="list-item" [routerLink]="[ 'promotions' ]" routerLinkActive="active" [ngClass]="{'active': activeTab === 'promotions'}"  (click)="click('promotions')">Акції</li>
+    <li class="list-item" [routerLink]="[ 'category' ]" routerLinkActive="active" [ngClass]="{'active': activeTab === 'category'}" (click)="click('category')">Категорії</li>
+    <li class="list-item" [routerLink]="[ 'goods' ]" routerLinkActive="active" [ngClass]="{'active': activeTab === 'goods'}" (click)="click('goods')">Товари</li>
+    <li class="list-item" [routerLink]="[ 'order' ]" routerLinkActive="active" [ngClass]="{'active': activeTab === 'order'}" (click)="click('order')">Замовлення</li>
+  </ul>
+  <button class="btn">Вихід</button>
+</div>

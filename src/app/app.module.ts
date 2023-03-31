@@ -19,6 +19,19 @@ import { ArticleComponent } from './pages/home/article/article.component';
 import { ModalWindowComponent } from './shared/components/modal-window/modal-window.component';
 import { NavPagesComponent } from './components/header/nav-pages/nav-pages.component';
 import { MapComponent } from './pages/delivery-payment/map/map.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminNavComponent } from './admin/admin-nav/admin-nav.component';
+import { AdminOrderComponent } from './admin/pages/admin-order/admin-order.component';
+import { AdminGoodsComponent } from './admin/pages/admin-goods/admin-goods.component';
+import { AdminCategoryComponent } from './admin/pages/admin-category/admin-category.component';
+import { AdminPromotionsComponent } from './admin/pages/admin-promotions/admin-promotions.component';
+import { CategoryTableComponent } from './admin/pages/admin-category/category-table/category-table.component';
+import { CategoryFormComponent } from './admin/pages/admin-category/category-form/category-form.component';
+import { PromotionsTableComponent } from './admin/pages/admin-promotions/promotions-table/promotions-table.component';
+import { PromotionsFormaComponent } from './admin/pages/admin-promotions/promotions-forma/promotions-forma.component';
+import { OfertaComponent } from './pages/oferta/oferta.component';
+
+
 
 @NgModule({
   declarations: [
@@ -36,7 +49,18 @@ import { MapComponent } from './pages/delivery-payment/map/map.component';
     ArticleComponent,
     ModalWindowComponent,
     NavPagesComponent,
-    MapComponent
+    MapComponent,
+    AdminComponent,
+    AdminNavComponent,
+    AdminOrderComponent,
+    AdminGoodsComponent,
+    AdminCategoryComponent,
+    AdminPromotionsComponent,
+    CategoryTableComponent,
+    CategoryFormComponent,
+    PromotionsTableComponent,
+    PromotionsFormaComponent,
+    OfertaComponent,
   ],
   imports: [
     BrowserModule,
