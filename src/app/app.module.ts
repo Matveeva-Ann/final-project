@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +32,9 @@ import { CategoryFormComponent } from './admin/pages/admin-category/category-for
 import { PromotionsTableComponent } from './admin/pages/admin-promotions/promotions-table/promotions-table.component';
 import { PromotionsFormaComponent } from './admin/pages/admin-promotions/promotions-forma/promotions-forma.component';
 import { OfertaComponent } from './pages/oferta/oferta.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 
 
@@ -66,7 +71,11 @@ import { OfertaComponent } from './pages/oferta/oferta.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    TextMaskModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    TextMaskModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ICategoryRequest, ICategoryResponse } from 'src/app/shared/interface/categoryInterface/category-interface';
 
 @Component({
   selector: 'app-admin-category',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AdminCategoryComponent {
   addCategory='table';
+  sendCategoryEdit!: ICategoryResponse;
 
   addCategoryBtn(){
     if(this.addCategory === 'table'){
@@ -14,6 +16,14 @@ export class AdminCategoryComponent {
     }else{
       this.addCategory = 'table'
     }
-
   }
+  editedCategory(category: ICategoryResponse){
+    this.sendCategoryEdit = category;
+    this.addCategory = 'forma';
+  }
+
+  pressToggle():void{
+    this.addCategory = 'table';
+  }
+ 
 }

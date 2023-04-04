@@ -43,3 +43,42 @@
     background-color: transparent;
   }
 }
+.progressBar{
+  width: 75%;
+  display: block;
+  height: 10px;
+  background-color: $mainColor;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.progressBar::-webkit-progress-value {
+  background-color: $mainColor;
+  border-radius: 10px;
+}
+
+.progressBar::-webkit-progress-bar {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+.imgWrapper{
+  width: 100%;
+  position: relative;
+}
+.img{
+  max-width: 150px;
+  max-height: 150px;
+  background-size: cover;
+}
+.cross{
+  position: absolute;
+  display: inline-block;
+  color: $darkGrayText;
+  padding: 5px;
+  top: -10px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  &:active{
+    transform: translate3d(0, 0.1em, 0);
+  }
+}

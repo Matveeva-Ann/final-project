@@ -32,6 +32,7 @@
     font-size: 16px;
     user-select: none;
     margin-right: 10px;
+    text-align: start;
     &:hover {
       opacity: 0.8;
     }
@@ -39,4 +40,7 @@
       transform: translate3d(0, 0.1em, 0);
     }
   }
+}
+.header-btn{
+  padding: 20px;
 }

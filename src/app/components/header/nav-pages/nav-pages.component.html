@@ -3,7 +3,11 @@
     <img src="/assets/img/nav-img-gift.svg" alt="" class="page-img">
     <span class="page-title">Акції</span>
   </a>
-  <a class="page">
+  <a class="page" *ngFor="let category of categoriesArr">
+    <img [src]="category.img" alt="" class="page-img">
+    <span class="page-title">{{category.title}}</span>
+  </a>
+  <!-- <a class="page">
     <img src="/assets/img/nav-img-rolls.svg" alt="" class="page-img">
     <span class="page-title">Роли</span>
   </a>
@@ -18,6 +22,6 @@
   <a class="page">
     <img src="/assets/img/icon.svg" alt="" class="page-img">
     <span class="page-title">Соуси</span>
-  </a>
+  </a> -->
   <!-- [routerLink]="[ '/path', routeParam ]" -->
 </nav>

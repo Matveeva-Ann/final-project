@@ -9,9 +9,9 @@
   justify-content: space-between;
   padding: 15px;
   position: relative;
-  @media (max-width: 1200px){margin-bottom: 50px;
+  // @media (max-width: 1200px){margin-bottom: 50px;
 
-  }
+  // }
   &-unit-mobile {
     @media (max-width: 800px) {
       width: 100%;

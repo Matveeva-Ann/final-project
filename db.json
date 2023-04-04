@@ -1,4 +1,30 @@
 {
+  "category": [
+    {
+      "title": "Роли",
+      "path": "roli",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/category%2Fnav-img-rolls.svg?alt=media&token=c15db57e-5ed6-4e5a-8ea5-85d784bf96bf",
+      "id": 1
+    },
+    {
+      "title": "Сети",
+      "path": "setu",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/category%2Fnav-img-sets.svg?alt=media&token=49c0ea02-e246-4c1a-8c40-e4500f233e14",
+      "id": 2
+    },
+    {
+      "title": "Напої",
+      "path": "napoyi",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/category%2Fnav-img-drinks.svg?alt=media&token=2110d021-e0e4-4421-b636-2b43cee3478a",
+      "id": 3
+    },
+    {
+      "title": "Соуси",
+      "path": "sousi",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/category%2Ficon.svg?alt=media&token=0177aa9f-9fbf-4293-a9fb-900c5ca5cabd",
+      "id": 4
+    }
+  ],
   "posts": [
     {
       "id": 1,

@@ -5,18 +5,18 @@
       <th class="header-th">Назва</th>
       <th class="header-th">Шлях</th>
       <th class="header-th">Картинка</th>
-      <th class="header-th">Дії</th>
+      <th class="header-th header-btn">Дії</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="body-td">Lorem, ipsum dolor.</td>
-      <td class="body-td">Lorem ipsum dolor sit amet.</td>
-      <td class="body-td">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repellat.</td>
-      <td class="body-td"><img src="/assets/img/advantages-img-1.svg" alt="" class="body-td-img"></td>
+    <tr *ngFor="let category of categoryArr; index as i">
+      <td class="body-td">{{i+1}}</td>
+      <td class="body-td">{{category.title}}</td>
+      <td class="body-td">{{category.path}}</td>
+      <td class="body-td"><img [src]="category.img" alt="" class="body-td-img"></td>
       <td class="body-td">
-        <button class="edit body-td-btn">Редагувати</button>
-        <button class="delete body-td-btn">Видалити</button>
+        <button class="edit body-td-btn" (click)="editCategory(category)">Редагувати</button>
+        <button class="delete body-td-btn" (click)="deleteCategory(category)">Видалити</button>
       </td>
     </tr>
   </tbody>
