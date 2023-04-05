@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IPromoResponse } from 'src/app/shared/interface/promotionsInterface/promotions-interface';
 
 @Component({
   selector: 'app-admin-promotions',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-promotions.component.scss']
 })
 export class AdminPromotionsComponent {
+  sendPromo?: IPromoResponse;
   addPromotion = 'table';
   addPromotionBtn(){
     if (this.addPromotion === 'table'){
@@ -13,5 +15,14 @@ export class AdminPromotionsComponent {
     }else{
       this.addPromotion = 'table';
     }
+  }
+
+  toggleWindow():void{
+    this.addPromotion = 'table';
+    this.sendPromo = undefined;
+  }
+  sendEditPromo(promo: IPromoResponse):void{
+    this.addPromotion = 'forma';
+    this.sendPromo = promo;
   }
 }

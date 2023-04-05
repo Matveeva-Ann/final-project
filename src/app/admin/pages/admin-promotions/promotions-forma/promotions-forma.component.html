@@ -1,9 +1,20 @@
 <div class="container">
-  <form name="categoryForm" class="categoryForm">
-    <input type="text" class="input" placeholder="*Назва">
-    <input type="text" class="input" placeholder="*Шлях">
-    <textarea name="" class="inputTextarea input" placeholder="*Опис"></textarea>
-    <input type="file" class="inputFile">
-    <button type="button" class="save-btn">зберегти</button>
+  <form name="promoForm" class="promoForm" [formGroup]="promoForm" (ngSubmit)="addPromo()">
+    <input type="text" formControlName="promoTitle" class="input" placeholder="*Назва">
+    <input type="text" formControlName="promoPath" class="input" placeholder="*Шлях">
+    <textarea name="" formControlName="description" class="inputTextarea input" placeholder="*Опис"></textarea>
+   
+    <ng-container *ngIf="!addedFile; else elseTemplate">
+      <input type="file" class="inputFile" (change)="loadImage($event)">
+      <progress class="progressBar" max="100" value="{{uploadPercent}}"></progress>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <div class="imgWrapper">
+        <img [src]="sendPromo ? sendPromo.img : urlPromo" class="img">
+        <span class="cross" (click)="deleteImg()">&times;</span>
+      </div>
+    </ng-template>
+
+    <button type="submit" class="save-btn"> {{!editStatus ? "зберегти" : "зберегти зміни" }}</button>
   </form>
 </div>

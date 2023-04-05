@@ -10,15 +10,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="body-td">Lorem, ipsum dolor.</td>
-      <td class="body-td">Lorem ipsum dolor sit amet.</td>
-      <td class="body-td">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repellat.</td>
-      <td class="body-td">Lorem ipsum dolor sit amet consectetur adipisicin</td>
-      <td class="body-td"><img src="/assets/img/5-tyj-v-podarunok-.jpg" alt="" class="body-td-img"></td>
+    <tr *ngFor="let promo of promotionsArr">
+      <td class="body-td">date</td>
+      <td class="body-td">{{promo.promoPath}}</td>
+      <td class="body-td">{{promo.promoTitle}}</td>
+      <td class="body-td">{{promo.description | slice:0:110}} <span *ngIf="promo.description.length>110">...</span></td>
+      <td class="body-td"><img [src]="promo.img" alt="" class="body-td-img"></td>
       <td class="body-td">
-        <button class="edit body-td-btn">Редагувати</button>
-        <button class="delete body-td-btn">Видалити</button>
+        <button class="edit body-td-btn" (click)="editPromo(promo)">Редагувати</button>
+        <button class="delete body-td-btn" (click)="deletePromo(promo)">Видалити</button>
       </td>
     </tr>
   </tbody>

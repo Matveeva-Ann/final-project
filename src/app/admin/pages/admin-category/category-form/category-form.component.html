@@ -8,7 +8,7 @@
     </ng-container>
     <ng-template #elseTemplate>
       <div class="imgWrapper">
-        <img [src]="valueByControl('img')" alt="" class="img">
+        <img [src]="sendCategoryEdit ? sendCategoryEdit.img :url" alt="" class="img">
         <span class="cross" (click)="deleteImg()">&times;</span>
       </div>
     </ng-template>

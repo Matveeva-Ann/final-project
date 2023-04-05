@@ -15,7 +15,6 @@ export class CategoryServiceService {
   }
 
   getCategory(): Observable<ICategoryResponse[]>{
-    console.log(this.api.categories)
     return this.http.get<ICategoryResponse[]>(this.api.categories)
   }
 

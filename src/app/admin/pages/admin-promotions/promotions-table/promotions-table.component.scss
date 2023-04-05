@@ -9,12 +9,13 @@
 }
 
 .header-th {
-  padding: 20px 10px 20px 0px;
+  padding: 20px 20px 20px 5px;
   border-bottom: 3px solid $mainColor;
   text-align: start;
+  // padding: 5px;
 }
 .body-td {
-  padding: 20px 5px;
+  padding: 20px 8px;
   text-align: start;
   border-bottom: 1px solid $gray;
   &-img {

@@ -8,7 +8,7 @@ import { ICategoryRequest, ICategoryResponse } from 'src/app/shared/interface/ca
 })
 export class AdminCategoryComponent {
   addCategory='table';
-  sendCategoryEdit!: ICategoryResponse;
+  sendCategoryEdit?: ICategoryResponse;
 
   addCategoryBtn(){
     if(this.addCategory === 'table'){
@@ -24,6 +24,7 @@ export class AdminCategoryComponent {
 
   pressToggle():void{
     this.addCategory = 'table';
+    this.sendCategoryEdit = undefined;
   }
  
 }

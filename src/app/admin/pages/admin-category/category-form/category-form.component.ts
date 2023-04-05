@@ -13,6 +13,7 @@ import {
   ICategoryResponse,
 } from 'src/app/shared/interface/categoryInterface/category-interface';
 import { CategoryServiceService } from 'src/app/shared/services/categoryService/category-service.service';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-category-form',
@@ -20,7 +21,7 @@ import { CategoryServiceService } from 'src/app/shared/services/categoryService/
   styleUrls: ['./category-form.component.scss'],
 })
 export class CategoryFormComponent {
-  @Input() sendCategoryEdit!: ICategoryResponse;
+  @Input() sendCategoryEdit?: ICategoryResponse = undefined;
   @Output() pressToggle = new EventEmitter<void>();
 
   public categoryForm!: FormGroup;
@@ -29,7 +30,6 @@ export class CategoryFormComponent {
   addedFile = false;
   uploadPercent = 0;
   url = '';
-
 
   constructor(
     private fb: FormBuilder,
@@ -49,6 +49,7 @@ export class CategoryFormComponent {
     });
     if (this.sendCategoryEdit) {
       console.log(this.sendCategoryEdit)
+      console.log(this.sendCategoryEdit.img)
       this.addedFile = true;
       this.editStatus = true;
       this.idCategory = this.sendCategoryEdit.id;
@@ -57,7 +58,6 @@ export class CategoryFormComponent {
         path: this.sendCategoryEdit.path,
         img: this.sendCategoryEdit.img,
       });
-
     }
   }
 
@@ -76,7 +76,6 @@ export class CategoryFormComponent {
 
   uploadImg(event: any): void {
     const file = event.target.files[0];
-    console.log(file);
     this.uploadFile('category', file.name, file).then((data) => {
       this.categoryForm.patchValue({
         img: data,
@@ -107,10 +106,9 @@ export class CategoryFormComponent {
     const task = ref(this.storage, this.valueByControl('img'));
     this.uploadPercent = 0;
     deleteObject(task).then (()=>{
-      console.log('file deleted');
       this.addedFile = false;
       this.categoryForm.patchValue({
-        img: null
+        img: null,
       })
     })
   }
