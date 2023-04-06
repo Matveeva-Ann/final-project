@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let promo of promotionsArr">
-      <td class="body-td">date</td>
+      <td class="body-td">{{promo.date | date: 'dd.MM.YYYY'}}</td>
       <td class="body-td">{{promo.promoPath}}</td>
       <td class="body-td">{{promo.promoTitle}}</td>
       <td class="body-td">{{promo.description | slice:0:110}} <span *ngIf="promo.description.length>110">...</span></td>

@@ -12,6 +12,6 @@
         <span class="cross" (click)="deleteImg()">&times;</span>
       </div>
     </ng-template>
-    <button type="submit" class="save-btn">{{editStatus ? 'Зберезти зміни' : 'зберегти'}}</button>
+    <button type="submit" class="save-btn" [disabled]="categoryForm.invalid">{{editStatus ? 'Зберезти зміни' : 'зберегти'}}</button>
   </form>
 </div>

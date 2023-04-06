@@ -2,7 +2,8 @@ export interface IPromoRequest {
   promoTitle: string,
   promoPath: string,
   description: string,
-  img:string
+  img:string,
+  date: string
 }
 
 export interface IPromoResponse extends IPromoRequest{

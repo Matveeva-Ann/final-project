@@ -7,7 +7,7 @@ import {
   Storage,
   uploadBytesResumable,
 } from '@angular/fire/storage';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   IPromoRequest,
   IPromoResponse,
@@ -42,10 +42,11 @@ export class PromotionsFormaComponent {
 
   initPromoForm(): void {
     this.promoForm = this.fb.group({
-      promoTitle: [null],
-      promoPath: [null],
-      description: [null],
-      img: [null],
+      promoTitle: [null, Validators.required],
+      promoPath: [null, Validators.required],
+      description: [null, Validators.required],
+      img: [null, Validators.required],
+      date: [null]
     });
     if (this.sendPromo) {
       this.editStatus = true;
@@ -61,7 +62,7 @@ export class PromotionsFormaComponent {
   }
 
   addPromo() {
-    console.log(this.promoForm.value);
+    this.promoForm.value.date = new Date;
     if (this.sendPromo) {
       this.promoService
         .updatePromo(this.promoForm.value, this.idPromo)

@@ -7,7 +7,7 @@ import {
   Storage,
   uploadBytesResumable,
 } from '@angular/fire/storage';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   ICategoryRequest,
   ICategoryResponse,
@@ -43,9 +43,9 @@ export class CategoryFormComponent {
 
   initCategory(): void {
     this.categoryForm = this.fb.group({
-      title: [null],
-      path: [null],
-      img: [null],
+      title: [null, Validators.required],
+      path: [null, Validators.required],
+      img: [null, Validators.required],
     });
     if (this.sendCategoryEdit) {
       console.log(this.sendCategoryEdit)

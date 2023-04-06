@@ -15,6 +15,6 @@
       </div>
     </ng-template>
 
-    <button type="submit" class="save-btn"> {{!editStatus ? "зберегти" : "зберегти зміни" }}</button>
+    <button type="submit" class="save-btn" [disabled]="promoForm.invalid"> {{!editStatus ? "зберегти" : "зберегти зміни" }}</button>
   </form>
 </div>
