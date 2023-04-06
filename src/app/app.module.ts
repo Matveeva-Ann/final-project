@@ -36,6 +36,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { CardComponent } from './pages/promotions/card/card.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 
 
@@ -68,6 +69,7 @@ import { CardComponent } from './pages/promotions/card/card.component';
     PromotionsFormaComponent,
     OfertaComponent,
     CardComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,

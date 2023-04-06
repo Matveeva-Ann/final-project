@@ -29,6 +29,7 @@
   text-decoration: none;
   color: $black;
   transition-duration: 0.35s;
+  text-align: center;
   @media (max-width: 1200px) {
     @include size(100%, 50px);
     border: none;
