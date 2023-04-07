@@ -9,7 +9,7 @@ import { PromotionsServiceService } from 'src/app/shared/services/promotionsServ
 })
 export class PromotionsTableComponent {
   @Output() sendEditPromo = new EventEmitter<IPromoResponse>();
-  promotionsArr: IPromoResponse[] = [];
+  public promotionsArr: IPromoResponse[] = [];
 
   constructor(private promoService: PromotionsServiceService) {}
 
@@ -17,17 +17,17 @@ export class PromotionsTableComponent {
     this.loadPromo();
   }
 
-  loadPromo(): void {
+  private loadPromo(): void {
     this.promoService.getPromotions().subscribe((data) => {
       this.promotionsArr = data;
     });
   }
 
-  editPromo(promo: IPromoResponse): void {
+  public editPromo(promo: IPromoResponse): void {
     this.sendEditPromo.emit(promo);
   }
 
-  deletePromo(promo: IPromoResponse): void {
+  public deletePromo(promo: IPromoResponse): void {
     this.promoService.deletePromo(promo.id).subscribe(() => {
       this.loadPromo();
     });

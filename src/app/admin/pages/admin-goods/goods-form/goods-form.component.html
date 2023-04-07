@@ -1,0 +1,29 @@
+<div class="container">
+  <form name="goodsForm" [formGroup]="goodsForm" class="goodsForm" (ngSubmit)="addGoods()">
+    <div></div>
+    <select name="" id="" class="input">
+      <option>*Виберіть категорію</option>
+      <option [value]="category.title" *ngFor="let category of allCategories">{{category.title}}</option>
+    </select>
+    <input type="text" formControlName="title" class="input halfInput" placeholder="*Назва">
+    <input type="text" formControlName="path" class="input halfInput" placeholder="*Шлях">
+    <input type="text" formControlName="ingredients" class="input" placeholder="*Інгредієнти">
+    <input type="text" formControlName="weight" class="input halfInput" placeholder="*Вага">
+    <input type="text" formControlName="price" class="input halfInput" placeholder="*Ціна">
+    <ng-container *ngIf="!addedFile; else elseTemplate">
+      <input type="file" class="inputFile" >
+      <progress class="progressBar" max="100" value="{{uploadPercent}}"></progress>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <div class="imgWrapper">
+        <img  alt="" class="img">
+        <span class="cross" (click)="deleteImg()">&times;</span>
+      </div>
+    </ng-template>
+    <button type="submit" class="save-btn">{{editStatus ? 'Зберезти зміни' : 'зберегти'}}</button>
+  </form>
+</div>
+
+<!-- [src]="sendCategoryEdit ? sendCategoryEdit.img :url" -->
+<!-- [disabled]="categoryForm.invalid" -->
+<!-- (change)="uploadImg($event)" -->

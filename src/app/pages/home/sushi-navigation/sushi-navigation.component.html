@@ -1,0 +1,12 @@
+<nav class="container">
+  <ul class="list">
+    <li class="list-item" (click)="clickElem('all')" [ngClass]="{'active': activeTab==='all'}"><span>Всі</span> </li>
+    <li class="list-item" (click)="clickElem('philadelphia')" [ngClass]="{'active': activeTab==='philadelphia'}"> <span>Філадельфія</span> </li>
+    <li class="list-item" (click)="clickElem('california')" [ngClass]="{'active': activeTab==='california'}"> <span>Каліфорнія</span> </li>
+    <li class="list-item" (click)="clickElem('baked')" [ngClass]="{'active': activeTab==='baked'}"> <span>Запечені</span> </li>
+    <li class="list-item" (click)="clickElem('firm')" [ngClass]="{'active': activeTab==='firm'}"> <span>Фірмові</span> </li>
+    <li class="list-item" (click)="clickElem('maki')" [ngClass]="{'active': activeTab==='maki'}"> <span>Макі</span> </li>
+    <li class="list-item" (click)="clickElem('premium')" [ngClass]="{'active': activeTab==='premium'}"> <span>Преміум</span> </li>
+  </ul>
+</nav>
+

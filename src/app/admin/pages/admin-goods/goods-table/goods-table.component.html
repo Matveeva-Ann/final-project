@@ -1,0 +1,29 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th class="header-th">№</th>
+      <th class="header-th">Категорія</th>
+      <th class="header-th">Назва</th>
+      <th class="header-th">Ітгредієнти</th>
+      <th class="header-th">Вага</th>
+      <th class="header-th">Ціна</th>
+      <th class="header-th">Картинка</th>
+      <th class="header-th header-btn">Дії</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of goodsArr; index as i">
+      <td class="body-td">{{i+1}}</td>
+      <td class="body-td">{{product.category}}</td>
+      <td class="body-td">{{product.title}}</td>
+      <td class="body-td">{{product.ingredients}}</td>
+      <td class="body-td">{{product.weight}}</td>
+      <td class="body-td">{{product.price}}</td>
+      <td class="body-td"><img [src]="product.img" alt="" class="body-td-img"></td>
+      <td class="body-td">
+        <button class="edit body-td-btn" (click)="editProduct(product)">Редагувати</button>
+        <button class="delete body-td-btn" (click)="deleteProduct(product)">Видалити</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ICategoryRequest, ICategoryResponse } from 'src/app/shared/interface/categoryInterface/category-interface';
+import { Component, Input } from '@angular/core';
+import { ICategoryResponse } from 'src/app/shared/interface/categoryInterface/category-interface';
 
 @Component({
   selector: 'app-admin-category',
@@ -7,8 +7,13 @@ import { ICategoryRequest, ICategoryResponse } from 'src/app/shared/interface/ca
   styleUrls: ['./admin-category.component.scss']
 })
 export class AdminCategoryComponent {
-  addCategory='table';
-  sendCategoryEdit?: ICategoryResponse;
+
+
+  private tableArrCategory: string[] = ["№", "Назва", "Шлях", "Картинка", "Дії"];
+
+
+  public addCategory='table';
+  public sendCategoryEdit?: ICategoryResponse;
 
   addCategoryBtn(){
     if(this.addCategory === 'table'){

@@ -2,17 +2,8 @@
 @import "/src/app/shared/styles/mixins";
 
 .container{
-  width: 50%;
+  width: 100%;
   margin-top: 20px;
-  @media (max-width: 1200px) {
-    width: 60%;
-  }
-  @media (max-width: 990px) {
-    width: 70%;
-  }
-  @media (max-width: 770px) {
-    width: 100%;
-  }
 }
 .categoryForm{
   display: flex;
@@ -20,7 +11,7 @@
   gap: 10px;
 }
 .input{
-  width: calc(50% - 10px);
+  width: 100%;
   padding: 10px;
   border: 1px solid $gray;
   border-radius: 10px;
@@ -44,7 +35,7 @@
   }
 }
 .progressBar{
-  width: 75%;
+  width: 100%;
   display: block;
   height: 10px;
   background-color: $mainColor;

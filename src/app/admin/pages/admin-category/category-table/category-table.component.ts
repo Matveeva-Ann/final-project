@@ -1,8 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {
-  ICategoryRequest,
-  ICategoryResponse,
-} from 'src/app/shared/interface/categoryInterface/category-interface';
+import {ICategoryResponse} from 'src/app/shared/interface/categoryInterface/category-interface';
 import { CategoryServiceService } from 'src/app/shared/services/categoryService/category-service.service';
 
 @Component({
@@ -13,7 +10,7 @@ import { CategoryServiceService } from 'src/app/shared/services/categoryService/
 export class CategoryTableComponent {
   @Output() editedCategory = new EventEmitter<ICategoryResponse>();
 
-  categoryArr: ICategoryResponse[] = [];
+  public categoryArr: ICategoryResponse[] = [];
 
   constructor(private categoryService: CategoryServiceService) {}
 

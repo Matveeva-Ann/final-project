@@ -10,14 +10,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WillCallComponent } from './components/header/will-call/will-call.component';
-import { MainComponent } from './components/main/main.component';
 import { BurgerMenuComponent } from './components/header/burger-menu/burger-menu.component';
 import { DeliveryPaymentComponent } from './pages/delivery-payment/delivery-payment.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { PromotionsComponent } from './pages/promotions/promotions.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InfoComponent } from './pages/home/info/info.component';
-import { ArticleComponent } from './pages/home/article/article.component';
+// import { DeliverySushiInfoComponent } from './pages/home/deliverySushiInfo/deliverySushiInfo.component';
 import { ModalWindowComponent } from './shared/components/modal-window/modal-window.component';
 import { NavPagesComponent } from './components/header/nav-pages/nav-pages.component';
 import { MapComponent } from './pages/delivery-payment/map/map.component';
@@ -37,6 +36,11 @@ import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { CardComponent } from './pages/promotions/card/card.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { InfoDeliverySushiComponent } from './pages/home/info-delivery-sushi/info-delivery-sushi.component';
+import { SushiNavigationComponent } from './pages/home/sushi-navigation/sushi-navigation.component';
+import { GoodsTableComponent } from './admin/pages/admin-goods/goods-table/goods-table.component';
+import { GoodsFormComponent } from './admin/pages/admin-goods/goods-form/goods-form.component';
+
 
 
 
@@ -46,14 +50,12 @@ import { ProductsComponent } from './pages/products/products.component';
     HeaderComponent,
     FooterComponent,
     WillCallComponent,
-    MainComponent,
     BurgerMenuComponent,
     DeliveryPaymentComponent,
     AboutUsComponent,
     PromotionsComponent,
     HomeComponent,
     InfoComponent,
-    ArticleComponent,
     ModalWindowComponent,
     NavPagesComponent,
     MapComponent,
@@ -70,6 +72,10 @@ import { ProductsComponent } from './pages/products/products.component';
     OfertaComponent,
     CardComponent,
     ProductsComponent,
+    InfoDeliverySushiComponent,
+    SushiNavigationComponent,
+    GoodsTableComponent,
+    GoodsFormComponent,
   ],
   imports: [
     BrowserModule,

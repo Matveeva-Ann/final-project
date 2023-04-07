@@ -6,9 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  willCall = false;
-  menu = false;
-
+  public willCall = false;
+  // private menu = false;
   closeFormCall(event:any):void{
     this.willCall=false;
   }

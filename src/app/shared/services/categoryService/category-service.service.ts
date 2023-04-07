@@ -30,6 +30,9 @@ export class CategoryServiceService {
     return this.http.patch<ICategoryResponse>(`${this.api.categories}/${id}`, category);
   }
 
+  // getTitle(): Observable<string[]>{
+  //   return this.http.get<string[]>(this.api.categories.title);
+  // }
   
 
 

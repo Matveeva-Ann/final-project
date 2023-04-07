@@ -7,9 +7,10 @@ import { IPromoResponse } from 'src/app/shared/interface/promotionsInterface/pro
   styleUrls: ['./admin-promotions.component.scss']
 })
 export class AdminPromotionsComponent {
-  sendPromo?: IPromoResponse;
-  addPromotion = 'table';
-  addPromotionBtn(){
+  public sendPromo?: IPromoResponse;
+  public addPromotion = 'table';
+  
+  public addPromotionBtn(){
     if (this.addPromotion === 'table'){
       this.addPromotion ='forma';
     }else{
@@ -17,11 +18,11 @@ export class AdminPromotionsComponent {
     }
   }
 
-  toggleWindow():void{
+  public toggleWindow():void{
     this.addPromotion = 'table';
     this.sendPromo = undefined;
   }
-  sendEditPromo(promo: IPromoResponse):void{
+  public sendEditPromo(promo: IPromoResponse):void{
     this.addPromotion = 'forma';
     this.sendPromo = promo;
   }

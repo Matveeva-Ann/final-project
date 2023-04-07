@@ -2,9 +2,8 @@
 @import "/src/app/shared/styles/mixins";
 
 .container {
-
   @include size(70%, auto);
-  margin: 0 auto;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
   gap: 40px;

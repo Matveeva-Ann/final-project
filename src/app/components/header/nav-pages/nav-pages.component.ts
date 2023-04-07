@@ -8,7 +8,7 @@ import { CategoryServiceService } from 'src/app/shared/services/categoryService/
   styleUrls: ['./nav-pages.component.scss']
 })
 export class NavPagesComponent {
-  categoriesArr: ICategoryResponse[] = [];
+  public categoriesArr: ICategoryResponse[] = [];
 
   constructor(private categoryService: CategoryServiceService){
   }
@@ -17,7 +17,7 @@ export class NavPagesComponent {
     this.allCategories();
   }
 
-  allCategories(){
+  private allCategories(){
     this.categoryService.getCategory().subscribe(data=>{
       this.categoriesArr = data;
     })

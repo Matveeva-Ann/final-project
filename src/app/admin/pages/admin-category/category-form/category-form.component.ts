@@ -1,19 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {
-  deleteObject,
-  getDownloadURL,
-  percentage,
-  ref,
-  Storage,
-  uploadBytesResumable,
-} from '@angular/fire/storage';
+import { deleteObject, getDownloadURL, percentage, ref, Storage, uploadBytesResumable,} from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  ICategoryRequest,
-  ICategoryResponse,
-} from 'src/app/shared/interface/categoryInterface/category-interface';
+import { ICategoryResponse } from 'src/app/shared/interface/categoryInterface/category-interface';
 import { CategoryServiceService } from 'src/app/shared/services/categoryService/category-service.service';
-import { __values } from 'tslib';
 
 @Component({
   selector: 'app-category-form',
@@ -25,11 +14,11 @@ export class CategoryFormComponent {
   @Output() pressToggle = new EventEmitter<void>();
 
   public categoryForm!: FormGroup;
-  editStatus = false;
-  idCategory = 0;
-  addedFile = false;
-  uploadPercent = 0;
-  url = '';
+  public editStatus = false;
+  private idCategory = 0;
+  public addedFile = false;
+  public uploadPercent = 0;
+  public url = '';
 
   constructor(
     private fb: FormBuilder,
@@ -48,8 +37,6 @@ export class CategoryFormComponent {
       img: [null, Validators.required],
     });
     if (this.sendCategoryEdit) {
-      console.log(this.sendCategoryEdit)
-      console.log(this.sendCategoryEdit.img)
       this.addedFile = true;
       this.editStatus = true;
       this.idCategory = this.sendCategoryEdit.id;
@@ -80,25 +67,19 @@ export class CategoryFormComponent {
       this.categoryForm.patchValue({
         img: data,
       });
-      console.log(file);
       this.addedFile = true;
     });
   }
-  async uploadFile(
-    folder: string,
-    name: string,
-    file: File | null
-  ): Promise<string> {
+  async uploadFile( folder: string, name: string, file: File | null): Promise<string> {
     const path = `${folder}/${name}`;
     if (file) {
-      const storageRef = ref(this.storage, path); //формує шлях куди завантажувати файл Об'єкт storage представляє Firebase Storage а рядок path вказує на шлях до певного місця в Firebase Storage, де будуть зберігатися файли.
-      const task = uploadBytesResumable(storageRef, file); // загружає файл на Firebase Перший параметр storageRef є об'єктом, який вказує на місце, куди файл буде завантажуватися. Другий параметр file є файлом, який буде завантажено.
+      const storageRef = ref(this.storage, path); 
+      const task = uploadBytesResumable(storageRef, file); 
       percentage(task).subscribe((data) => {
         this.uploadPercent = data.progress;
       });
       await task;
       this.url = await getDownloadURL(storageRef);
-
     }
     return Promise.resolve(this.url);
   }
@@ -115,4 +96,5 @@ export class CategoryFormComponent {
   valueByControl(control: string): string {
     return this.categoryForm.get(control)?.value;
   }
+  
 }

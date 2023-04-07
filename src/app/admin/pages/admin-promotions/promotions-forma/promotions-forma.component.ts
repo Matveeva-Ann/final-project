@@ -22,13 +22,13 @@ import { PromotionsServiceService } from 'src/app/shared/services/promotionsServ
 export class PromotionsFormaComponent {
   @Output() toggleWindow = new EventEmitter<void>();
   @Input() sendPromo?: IPromoResponse;
-  promoForm!: FormGroup;
+  public promoForm!: FormGroup;
 
   public addedFile = false;
   public uploadPercent = 0;
   public editStatus = false;
-  idPromo = 0;
-  urlPromo = '';
+  private idPromo = 0;
+  public urlPromo = '';
 
   constructor(
     private promoService: PromotionsServiceService,
@@ -40,7 +40,7 @@ export class PromotionsFormaComponent {
     this.initPromoForm();
   }
 
-  initPromoForm(): void {
+  private initPromoForm(): void {
     this.promoForm = this.fb.group({
       promoTitle: [null, Validators.required],
       promoPath: [null, Validators.required],
@@ -61,7 +61,7 @@ export class PromotionsFormaComponent {
     }
   }
 
-  addPromo() {
+  public addPromo() {
     this.promoForm.value.date = new Date;
     if (this.sendPromo) {
       this.promoService
@@ -76,7 +76,7 @@ export class PromotionsFormaComponent {
     this.editStatus = false;
   }
 
-  loadImage(event: any): void {
+  public loadImage(event: any): void {
     const file = event.target.files[0];
     this.uploadFile('promotions', file.name, file).then((data) => {
       this.promoForm.patchValue({
@@ -105,7 +105,7 @@ export class PromotionsFormaComponent {
     return Promise.resolve(this.urlPromo);
   }
 
-  deleteImg(): void {
+  public deleteImg(): void {
     const task = ref(this.storage, this.valueByControl('img'));
     this.uploadPercent = 0;
     deleteObject(task).then(() => {
@@ -115,7 +115,7 @@ export class PromotionsFormaComponent {
       });
     });
   }
-  valueByControl(promo: string): string {
+  private valueByControl(promo: string): string {
     return this.promoForm.get(promo)?.value;
   }
 }

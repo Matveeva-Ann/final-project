@@ -13,7 +13,7 @@ export class WillCallComponent {
 
   phoneMask = ['+', '3', '8', ' ', '(', '0', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   
-  closeWindow(event:any){
+  public closeWindow(){
     this.willCall = false;
     this.closeFormCall.emit();
   }
