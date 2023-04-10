@@ -4,9 +4,10 @@ export interface IGoodsRequest {
   title: string;
   path: string;
   ingredients: string;
-  weight: string;
+  weight: number;
   img: string;
   price: number;
+  count: number;
 }
 
 export interface IGoodsResponse extends IGoodsRequest {

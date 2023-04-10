@@ -2,7 +2,7 @@
 <div class="container">
   <div class="addPromotion" (click)="addCategoryBtn()">додати продукт</div>
   <ng-container *ngIf="addCategory">
-    <app-goods-form (pressToggle)="pressToggle()"></app-goods-form>
+    <app-goods-form></app-goods-form>
   </ng-container>
   <app-goods-table></app-goods-table>
 </div>

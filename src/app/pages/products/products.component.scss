@@ -13,3 +13,14 @@
   border-top: 5px solid $mainColor;
   padding-top: 5px;
 }
+app-product-card{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.cards{
+  margin-top: 40px;
+  padding: 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+}

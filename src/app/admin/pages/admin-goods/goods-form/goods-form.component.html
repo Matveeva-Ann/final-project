@@ -1,8 +1,7 @@
 <div class="container">
   <form name="goodsForm" [formGroup]="goodsForm" class="goodsForm" (ngSubmit)="addGoods()">
-    <div></div>
-    <select name="" id="" class="input">
-      <option>*Виберіть категорію</option>
+    <select class="input" formControlName="category"  [(ngModel)]="selectedCategory">
+      <option value="" selected disabled >*Виберіть категорію</option>
       <option [value]="category.title" *ngFor="let category of allCategories">{{category.title}}</option>
     </select>
     <input type="text" formControlName="title" class="input halfInput" placeholder="*Назва">
@@ -11,12 +10,13 @@
     <input type="text" formControlName="weight" class="input halfInput" placeholder="*Вага">
     <input type="text" formControlName="price" class="input halfInput" placeholder="*Ціна">
     <ng-container *ngIf="!addedFile; else elseTemplate">
-      <input type="file" class="inputFile" >
+      <input type="file" class="inputFile" id="inputFile" (change)="addFile($event)">
+      <label for="inputFile">Додайте файл</label>
       <progress class="progressBar" max="100" value="{{uploadPercent}}"></progress>
     </ng-container>
     <ng-template #elseTemplate>
       <div class="imgWrapper">
-        <img  alt="" class="img">
+        <img  [src]="url" alt="" class="img">
         <span class="cross" (click)="deleteImg()">&times;</span>
       </div>
     </ng-template>

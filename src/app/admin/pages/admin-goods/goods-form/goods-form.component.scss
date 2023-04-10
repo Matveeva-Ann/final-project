@@ -23,7 +23,23 @@
 //   }
 // }
 .inputFile{
-  width: 100%;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  & + label{
+    background-color: $darkGrayText;
+    padding: 4px 22px;
+    font-size: 15px;
+    color: $white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid $darkGrayText;
+    transition: all 0.35s;
+    &:hover{
+      background-color: transparent;
+      color: $darkGrayText;
+    }
+  }
 }
 .save-btn{
   @extend %btnStyle;

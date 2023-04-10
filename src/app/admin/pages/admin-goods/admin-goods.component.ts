@@ -7,19 +7,11 @@ import { ICategoryResponse } from 'src/app/shared/interface/categoryInterface/ca
   styleUrls: ['./admin-goods.component.scss'],
 })
 export class AdminGoodsComponent {
-  public addCategory = true;
-  // public sendCategoryEdit?: ICategoryResponse;
-
+ 
+  public addCategory = false;
+  
   addCategoryBtn() {
     this.addCategory = !this.addCategory;
   }
-  editedCategory(category: ICategoryResponse) {
-    //     this.sendCategoryEdit = category;
-    //     this.addCategory = 'forma';
-  }
-
-  pressToggle(): void {
-    //     this.addCategory = 'table';
-    //     this.sendCategoryEdit = undefined;
-  }
+  
 }

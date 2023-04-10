@@ -1,0 +1,21 @@
+<div class="container-wrapper">
+  <div class="container"  *ngFor="let good of goodsArr">
+    <div class="imgWrapper">
+      <img [src]="good.img" alt="" class="img">
+    </div>
+    <h3 class="title">{{good.title}}</h3>
+    <div class="description-wrapper">
+      <p class="description">{{good.ingredients}}</p>
+      <span class="weight">{{good.weight + 'г'}}</span>
+    </div>
+    <div class="order-wrapper">
+      <span class="price">{{good.price}} грн.</span>
+      <div class="quantity">
+        <span class="quantity-unit">-</span>
+        <span>1</span>
+        <span class="quantity-unit">+</span>
+      </div>
+      <button type="button" class="order-brn">замовити</button>
+    </div>
+  </div>
+</div>

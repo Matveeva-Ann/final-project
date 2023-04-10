@@ -1,0 +1,143 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.container-wrapper{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 300px);
+  }
+  @media (max-width: 990px) {
+    grid-template-columns: repeat(2, 330px);
+  }
+  @media (max-width: 770px) {
+    grid-template-columns: repeat(2, 270px);
+  }
+  @media (max-width: 620px) {
+    grid-template-columns: repeat(1, minmax(200px, 398px));
+  }
+}
+
+.container {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 30px;
+  border: 2px solid transparent;
+  transition: all 0.35s;
+  @media (max-width: 1200px){
+    border: none;
+  }
+  @media (max-width: 770px) {
+    padding: 5px;
+    margin: 0px;
+  }
+  @media (max-width: 615px) {
+    width: 100%;
+    padding: 0;
+  }
+  &:hover {
+    border: 2px solid $mainColor;
+    border-radius: 10px;
+    @media (max-width: 1200px) {
+      border: none;
+    }
+  }
+}
+.imgWrapper {
+  height: 100%;
+  min-height: 240px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img {
+  width: 100%;
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  transition: all 0.35s;
+  margin: 10px 0;
+  &:hover {
+    color: $mainColor;
+  }
+}
+.description-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.description {
+  width: 80%;
+  color: $darkGrayText;
+  line-height: 1.5em;
+}
+.weight {
+  padding-left: 15px;
+  color: $darkGrayText;
+  font-weight: 900;
+}
+.order-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price {
+  font-size: 18px;
+  font-weight: 700;
+  @media (max-width: 770px) {
+    font-size: 16px;
+  }
+}
+.quantity {
+  max-width: 95px;
+  width: 100%;
+  max-height: 45px;
+  height: 100%;
+  border: 2px solid $gray;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &-unit {
+    padding: 2px;
+    user-select: none;
+    margin: 2px;
+    width: 30%;
+    font-size: 24px;
+    color: $darkGrayText;
+    cursor: pointer;
+    text-align: center;
+    &:active {
+      transform: translate3d(0, 1px, 0);
+    }
+  }
+  @media (max-width: 770px) {
+    padding: 5px;
+    max-width: 90px;
+    margin: 0 2px;
+    max-height: 35px;
+
+  }
+}
+.order-brn {
+  @extend %btnStyle;
+  background-color: $mainColor;
+  padding: 14px 10px;
+  font-size: 12px;
+  margin-left: 5px;
+  font-weight: 700;
+  &:hover {
+    background-color: $white;
+  }
+  @media (max-width: 770px) {
+    padding: 10px;
+  }
+}

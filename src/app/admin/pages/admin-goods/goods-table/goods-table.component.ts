@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ICategoryResponse } from 'src/app/shared/interface/categoryInterface/category-interface';
 import { IGoodsResponse } from 'src/app/shared/interface/goodsInterface/goods-interface';
 import { GoodsServiceService } from 'src/app/shared/services/goodsSevice/goods-service.service';
@@ -9,7 +9,7 @@ import { GoodsServiceService } from 'src/app/shared/services/goodsSevice/goods-s
   styleUrls: ['./goods-table.component.scss']
 })
 export class GoodsTableComponent {
-
+ 
   public goodsArr: IGoodsResponse []=[];
 
   constructor(private goodsService: GoodsServiceService){}
@@ -17,7 +17,7 @@ export class GoodsTableComponent {
   ngOnInit(): void {
     this.getAllGoods();
   }
-
+ 
   getAllGoods(){
     this.goodsService.getGoods().subscribe((data)=>{
       this.goodsArr = data;
@@ -25,10 +25,9 @@ export class GoodsTableComponent {
   }
 
   editProduct(product:IGoodsResponse){
-
   }
-  deleteProduct(product: IGoodsResponse){
 
+  deleteProduct(product: IGoodsResponse){
   }
   
 }

@@ -17,6 +17,12 @@
       "path": "napoyi",
       "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/category%2Fnav-img-drinks.svg?alt=media&token=2110d021-e0e4-4421-b636-2b43cee3478a",
       "id": 3
+    },
+    {
+      "title": "Соуси",
+      "path": "sousi",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/category%2Ficon.svg?alt=media&token=44fb4ae2-5c6b-4311-a80e-311869aedbc0",
+      "id": 4
     }
   ],
   "promo": [
@@ -63,14 +69,70 @@
   ],
   "goods": [
     {
-      "category": null,
-      "title": "casc",
-      "path": "asc",
-      "ingredients": "asc",
-      "weight": "asc",
-      "price": "asc",
-      "img": null,
+      "category": "Сети",
+      "title": "Сет Філадельфія",
+      "path": "setu",
+      "ingredients": "Філадельфія: з лососем / в кунжуті / з тунцем / з вугрем",
+      "weight": "1070",
+      "price": "1075",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/product%2F1.jpg?alt=media&token=0c6bfa36-20e1-4585-b0f8-a9633fe76b60",
+      "count": 1,
       "id": 1
+    },
+    {
+      "category": "Сети",
+      "title": "Запечений сет",
+      "path": "setu",
+      "ingredients": "Запечений сирний з креветкою Запечений моно з лососем",
+      "weight": "680",
+      "price": "570",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/product%2F2.jpg?alt=media&token=3ca8a38a-74c6-4e36-a520-712b607b8ca1",
+      "count": 1,
+      "id": 2
+    },
+    {
+      "category": "Сети",
+      "title": "Сет Каліфорнія",
+      "path": "setu",
+      "ingredients": "Каліфорнія: з лососем / з креветкою / з крабом / з вугрем",
+      "weight": "1000",
+      "price": "978",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/product%2F3.jpg?alt=media&token=15c4a900-3930-4562-a7a5-709bc7077ba8",
+      "count": 1,
+      "id": 3
+    },
+    {
+      "category": "Сети",
+      "title": "Класичний сет",
+      "path": "setu",
+      "ingredients": "Філадельфія з лососем / Каліфорнія з крабом",
+      "weight": "530",
+      "price": "475",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/product%2F4.jpg?alt=media&token=ad18b2a3-e142-40c5-97fd-4fe3727f36e6",
+      "count": 1,
+      "id": 4
+    },
+    {
+      "category": "Сети",
+      "title": "Сет Макі",
+      "path": "setu",
+      "ingredients": "Макі: з авокадо / з лососем / з огірком / з вугрем",
+      "weight": "480",
+      "price": "597",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/product%2F5.jpg?alt=media&token=3bcdf1c6-5a3d-46d2-a86e-558a7d7942f7",
+      "count": 1,
+      "id": 5
+    },
+    {
+      "category": "Сети",
+      "title": "Унагі сет",
+      "path": "setu",
+      "ingredients": "Філадельфія з вугрем / Каліфорнія з вугрем / Фелікс з вугрем",
+      "weight": "800",
+      "price": "888",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/product%2F6.jpg?alt=media&token=cee7ab6c-8908-4c94-85e9-9f3d24e6c655",
+      "count": 1,
+      "id": 6
     }
   ]
 }

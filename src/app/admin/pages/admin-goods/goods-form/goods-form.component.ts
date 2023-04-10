@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { getDownloadURL, percentage, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ICategoryResponse } from 'src/app/shared/interface/categoryInterface/category-interface';
 import { IGoodsResponse } from 'src/app/shared/interface/goodsInterface/goods-interface';
@@ -8,20 +9,25 @@ import { GoodsServiceService } from 'src/app/shared/services/goodsSevice/goods-s
 @Component({
   selector: 'app-goods-form',
   templateUrl: './goods-form.component.html',
-  styleUrls: ['./goods-form.component.scss']
+  styleUrls: ['./goods-form.component.scss'],
 })
 export class GoodsFormComponent {
-  public allCategories: ICategoryResponse[]=[];
+  public allCategories: ICategoryResponse[] = [];
   public goodsArr: IGoodsResponse[] = [];
   public goodsForm!: FormGroup;
   public uploadPercent = 0;
   public addedFile = false;
   public editStatus = false;
+  public selectedCategory = '';
+  public url = '';
 
-  constructor(private categoryService: CategoryServiceService,
-              private goodsService: GoodsServiceService,
-              private fb: FormBuilder,
-     ){}
+  constructor(
+    private categoryService: CategoryServiceService,
+    private goodsService: GoodsServiceService,
+    private fb: FormBuilder,
+    private storage: Storage,
+
+  ) {}
 
   ngOnInit(): void {
     this.getCategories();
@@ -29,13 +35,7 @@ export class GoodsFormComponent {
     this.initGoodsForm();
   }
 
-  initGoods():void{
-    this.goodsService.getGoods().subscribe((data)=>{
-      this.goodsArr = data;
-    })
-  }
-
-  initGoodsForm(){
+  initGoodsForm() {
     this.goodsForm = this.fb.group({
       category: [null, Validators.required],
       title: [null, Validators.required],
@@ -43,20 +43,54 @@ export class GoodsFormComponent {
       ingredients: [null, Validators.required],
       weight: [null, Validators.required],
       price: [null, Validators.required],
-      img: [null, Validators.required],      
-    })
+      img: [null, Validators.required],
+      count: 1,
+    });
+  }
+  
+
+  initGoods(): void {
+    this.goodsService.getGoods().subscribe((data) => {
+      this.goodsArr = data;
+    });
   }
 
-
-  getCategories(){
-    this.categoryService.getCategory().subscribe((data)=>{
-      this.allCategories = data;
-    })
-  }
-
-  deleteImg(){}
-
-  addGoods(){
+  addGoods() {
     this.goodsService.addGoods(this.goodsForm.value).subscribe();
+    location.reload();
+  }
+
+
+
+  getCategories() {
+    this.categoryService.getCategory().subscribe((data) => {
+      this.allCategories = data;
+    });
+  }
+
+  deleteImg() {}
+
+
+  addFile(event: any): void {
+    const file = event.target.files[0];
+    this.uploadFile('product', file.name, file).then((data) => {
+      this.goodsForm.patchValue({
+        img: data,
+      });
+      this.addedFile = true;
+    });
+  }
+  async uploadFile( folder: string, name: string, file: File | null): Promise<string> {
+    const path = `${folder}/${name}`;
+    if (file) {
+      const storageRef = ref(this.storage, path); 
+      const task = uploadBytesResumable(storageRef, file); 
+      percentage(task).subscribe((data) => {
+        this.uploadPercent = data.progress;
+      });
+      await task;
+      this.url = await getDownloadURL(storageRef);
+    }
+    return Promise.resolve(this.url);
   }
 }

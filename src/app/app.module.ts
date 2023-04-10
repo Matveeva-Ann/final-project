@@ -40,6 +40,7 @@ import { InfoDeliverySushiComponent } from './pages/home/info-delivery-sushi/inf
 import { SushiNavigationComponent } from './pages/home/sushi-navigation/sushi-navigation.component';
 import { GoodsTableComponent } from './admin/pages/admin-goods/goods-table/goods-table.component';
 import { GoodsFormComponent } from './admin/pages/admin-goods/goods-form/goods-form.component';
+import { ProductCardComponent } from './pages/products/product-card/product-card.component';
 
 
 
@@ -76,6 +77,7 @@ import { GoodsFormComponent } from './admin/pages/admin-goods/goods-form/goods-f
     SushiNavigationComponent,
     GoodsTableComponent,
     GoodsFormComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
