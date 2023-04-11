@@ -1,8 +1,7 @@
-
 <div class="container">
   <div class="addPromotion" (click)="addCategoryBtn()">додати продукт</div>
-  <ng-container *ngIf="addCategory">
-    <app-goods-form></app-goods-form>
+  <ng-container *ngIf="openForm">
+    <app-goods-form [editProduct]="editProduct" (addChangProduct)="addChangProduct()"></app-goods-form>
   </ng-container>
-  <app-goods-table></app-goods-table>
+  <app-goods-table (sendEditProduct)="sendEditProduct($event)" [productChanged]="productChanged" (changeStatusProductChanged)="changeStatusProductChanged()"></app-goods-table>
 </div>

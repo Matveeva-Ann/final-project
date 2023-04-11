@@ -8,6 +8,7 @@ export interface IGoodsRequest {
   img: string;
   price: number;
   count: number;
+  unit: string;
 }
 
 export interface IGoodsResponse extends IGoodsRequest {

@@ -17,8 +17,8 @@
       <td class="body-td">{{product.category}}</td>
       <td class="body-td">{{product.title}}</td>
       <td class="body-td">{{product.ingredients}}</td>
-      <td class="body-td">{{product.weight}}</td>
-      <td class="body-td">{{product.price}}</td>
+      <td class="body-td">{{product.weight + product.unit}}</td>
+      <td class="body-td">{{product.price}}грн.</td>
       <td class="body-td"><img [src]="product.img" alt="" class="body-td-img"></td>
       <td class="body-td">
         <button class="edit body-td-btn" (click)="editProduct(product)">Редагувати</button>

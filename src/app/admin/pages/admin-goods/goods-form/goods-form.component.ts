@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { getDownloadURL, percentage, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { deleteObject, getDownloadURL, percentage, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ICategoryResponse } from 'src/app/shared/interface/categoryInterface/category-interface';
 import { IGoodsResponse } from 'src/app/shared/interface/goodsInterface/goods-interface';
@@ -12,55 +12,75 @@ import { GoodsServiceService } from 'src/app/shared/services/goodsSevice/goods-s
   styleUrls: ['./goods-form.component.scss'],
 })
 export class GoodsFormComponent {
+  @Input() editProduct?: IGoodsResponse = undefined;
+  @Output() addChangProduct = new EventEmitter<void>();
+
+  
+
   public allCategories: ICategoryResponse[] = [];
-  public goodsArr: IGoodsResponse[] = [];
   public goodsForm!: FormGroup;
   public uploadPercent = 0;
   public addedFile = false;
   public editStatus = false;
   public selectedCategory = '';
   public url = '';
+  private idEditedProduct = 0;
+  public category = '';
 
   constructor(
     private categoryService: CategoryServiceService,
     private goodsService: GoodsServiceService,
     private fb: FormBuilder,
     private storage: Storage,
-
   ) {}
 
   ngOnInit(): void {
     this.getCategories();
-    this.initGoods();
     this.initGoodsForm();
   }
 
-  initGoodsForm() {
+  private initGoodsForm() {
     this.goodsForm = this.fb.group({
-      category: [null, Validators.required],
+      category: ["*Виберіть категорію", Validators.required],
       title: [null, Validators.required],
       path: [null, Validators.required],
-      ingredients: [null, Validators.required],
+      ingredients: [null],
       weight: [null, Validators.required],
+      unit: "г",
       price: [null, Validators.required],
       img: [null, Validators.required],
       count: 1,
     });
+    if(this.editProduct){
+      this.addedFile = true;
+      this.editStatus = true;
+      this.category = this.editProduct.category;
+      this.idEditedProduct = this.editProduct.id;
+      this.goodsForm.patchValue({
+        category: this.editProduct.category,
+        title: this.editProduct.title,
+        path: this.editProduct.path,
+        ingredients: this.editProduct.ingredients,
+        weight: this.editProduct.weight,
+        unit: this.editProduct.unit,
+        price: this.editProduct.price,
+        img: this.editProduct.img,
+        count: 1,
+      })
+    }
   }
   
-
-  initGoods(): void {
-    this.goodsService.getGoods().subscribe((data) => {
-      this.goodsArr = data;
-    });
+  public addGoods() {
+    if (this.editProduct){
+      this.goodsService.updateGoods(this.goodsForm.value, this.idEditedProduct).subscribe();
+    }else{
+      this.goodsService.addGoods(this.goodsForm.value).subscribe(()=>{});
+    }
+    this.addedFile = false;
+    this.editStatus = false;
+    this.goodsForm.reset();
+    this.addChangProduct.emit();
   }
-
-  addGoods() {
-    this.goodsService.addGoods(this.goodsForm.value).subscribe();
-    location.reload();
-  }
-
-
 
   getCategories() {
     this.categoryService.getCategory().subscribe((data) => {
@@ -68,7 +88,20 @@ export class GoodsFormComponent {
     });
   }
 
-  deleteImg() {}
+  deleteImg() {
+    const task = ref(this.storage, this.valueByControl('img'));
+    this.uploadPercent = 0;
+    deleteObject(task).then (()=>{
+      this.addedFile = false;
+      this.goodsForm.patchValue({
+        img: null,
+      })
+    })
+  }
+  
+  valueByControl(control: string): string {
+    return this.goodsForm.get(control)?.value;
+  }
 
 
   addFile(event: any): void {

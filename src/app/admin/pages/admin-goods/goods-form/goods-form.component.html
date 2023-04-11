@@ -1,14 +1,21 @@
 <div class="container">
   <form name="goodsForm" [formGroup]="goodsForm" class="goodsForm" (ngSubmit)="addGoods()">
-    <select class="input" formControlName="category"  [(ngModel)]="selectedCategory">
-      <option value="" selected disabled >*Виберіть категорію</option>
+    <select class="input" formControlName="category" >
+      <option value="*Виберіть категорію" selected disabled>*Виберіть категорію</option>
       <option [value]="category.title" *ngFor="let category of allCategories">{{category.title}}</option>
     </select>
     <input type="text" formControlName="title" class="input halfInput" placeholder="*Назва">
     <input type="text" formControlName="path" class="input halfInput" placeholder="*Шлях">
     <input type="text" formControlName="ingredients" class="input" placeholder="*Інгредієнти">
-    <input type="text" formControlName="weight" class="input halfInput" placeholder="*Вага">
-    <input type="text" formControlName="price" class="input halfInput" placeholder="*Ціна">
+    <div class="halfInput">
+      <input type="number" formControlName="weight" class="input halfInput" placeholder="*Вага">
+      <select class="input halfInput" formControlName="unit">
+        <option value="г" selected>г</option>
+        <option value="л">л</option>
+        <option value="мл">мл</option>
+      </select>
+    </div>
+    <input type="number" formControlName="price" class="input halfInput" placeholder="*Ціна">
     <ng-container *ngIf="!addedFile; else elseTemplate">
       <input type="file" class="inputFile" id="inputFile" (change)="addFile($event)">
       <label for="inputFile">Додайте файл</label>
@@ -16,14 +23,11 @@
     </ng-container>
     <ng-template #elseTemplate>
       <div class="imgWrapper">
-        <img  [src]="url" alt="" class="img">
+        <img  [src]="editProduct ? editProduct.img : url" alt="" class="img">
         <span class="cross" (click)="deleteImg()">&times;</span>
       </div>
     </ng-template>
-    <button type="submit" class="save-btn">{{editStatus ? 'Зберезти зміни' : 'зберегти'}}</button>
+    <button type="submit" class="save-btn" [disabled]="goodsForm.invalid" >{{editStatus ? 'Зберезти зміни' : 'зберегти'}}</button>
   </form>
 </div>
 
-<!-- [src]="sendCategoryEdit ? sendCategoryEdit.img :url" -->
-<!-- [disabled]="categoryForm.invalid" -->
-<!-- (change)="uploadImg($event)" -->

@@ -8,22 +8,18 @@ import { IPromoResponse } from 'src/app/shared/interface/promotionsInterface/pro
 })
 export class AdminPromotionsComponent {
   public sendPromo?: IPromoResponse;
-  public addPromotion = 'table';
+  public addPromotion = true;
   
   public addPromotionBtn(){
-    if (this.addPromotion === 'table'){
-      this.addPromotion ='forma';
-    }else{
-      this.addPromotion = 'table';
-    }
+    this.addPromotion = !this.addPromotion;
   }
 
   public toggleWindow():void{
-    this.addPromotion = 'table';
+    this.addPromotion = !this.addPromotion;
     this.sendPromo = undefined;
   }
   public sendEditPromo(promo: IPromoResponse):void{
-    this.addPromotion = 'forma';
+    this.addPromotion = !this.addPromotion;
     this.sendPromo = promo;
   }
 }

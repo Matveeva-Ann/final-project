@@ -1,6 +1,6 @@
 <div class="container">
   <div class="addPromotion" (click)="addCategoryBtn()">додати категорію</div>
-  <ng-container *ngIf="addCategory==='table'; else formAddCategory">
+  <ng-container *ngIf="addCategory; else formAddCategory">
     <app-category-table (editedCategory)="editedCategory($event)"></app-category-table>
   </ng-container>
   <ng-template #formAddCategory>

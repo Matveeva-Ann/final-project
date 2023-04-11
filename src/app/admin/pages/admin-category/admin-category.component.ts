@@ -7,28 +7,20 @@ import { ICategoryResponse } from 'src/app/shared/interface/categoryInterface/ca
   styleUrls: ['./admin-category.component.scss']
 })
 export class AdminCategoryComponent {
-
-
-  private tableArrCategory: string[] = ["№", "Назва", "Шлях", "Картинка", "Дії"];
-
-
-  public addCategory='table';
+  // private tableArrCategory: string[] = ["№", "Назва", "Шлях", "Картинка", "Дії"];
+  public addCategory= true;
   public sendCategoryEdit?: ICategoryResponse;
 
-  addCategoryBtn(){
-    if(this.addCategory === 'table'){
-      this.addCategory = 'forma';
-    }else{
-      this.addCategory = 'table'
-    }
+  public addCategoryBtn(){
+   this.addCategory = !this.addCategory;
   }
-  editedCategory(category: ICategoryResponse){
+  public editedCategory(category: ICategoryResponse){
     this.sendCategoryEdit = category;
-    this.addCategory = 'forma';
+    this.addCategory = !this.addCategory;
   }
 
-  pressToggle():void{
-    this.addCategory = 'table';
+  public pressToggle():void{
+    this.addCategory = !this.addCategory;
     this.sendCategoryEdit = undefined;
   }
  
