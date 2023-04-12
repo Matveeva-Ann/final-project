@@ -27,7 +27,8 @@
         <span class="cross" (click)="deleteImg()">&times;</span>
       </div>
     </ng-template>
+    <!-- <app-adding-photo (sendImgToForm)="sendImgToForm($event)" (sendUrlToForm)="sendUrlToForm($event)" [sendEditImg]="sendEditImg" [displayPicture]="displayPicture"></app-adding-photo> -->
+
     <button type="submit" class="save-btn" [disabled]="goodsForm.invalid" >{{editStatus ? 'Зберезти зміни' : 'зберегти'}}</button>
   </form>
 </div>
-

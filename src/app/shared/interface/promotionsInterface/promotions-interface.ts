@@ -3,6 +3,7 @@ export interface IPromoRequest {
   promoPath: string,
   description: string,
   img:string,
+  imgForHome: string,
   date: string
 }
 

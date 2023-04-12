@@ -1,0 +1,14 @@
+<div class="container">
+  <ng-container *ngIf="!addedFile; else elseTemplate">
+    <input type="file" class="inputFile" id="inputFile" (change)="addFile($event)">
+    <label for="inputFile">Додайте файл</label>
+    <progress class="progressBar" max="100" value="{{uploadPercent}}"></progress>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="imgWrapper">
+      <img  [src]="editProduct ? editProduct : url" class="img">
+      <span class="cross" (click)="deleteImg()">&times;</span>
+    </div>
+  </ng-template>
+</div>
+

@@ -3,7 +3,7 @@
     <input type="text" formControlName="title" class="input" placeholder="*Назва">
     <input type="text" formControlName="path" class="input" placeholder="*Шлях">
     <ng-container *ngIf="!addedFile; else elseTemplate">
-      <input type="file" class="inputFile" (change)="uploadImg($event)">
+      <input type="file" class="inputFile" id="inputFile" (change)="uploadImg($event)">
       <progress class="progressBar" max="100" value="{{uploadPercent}}"></progress>
     </ng-container>
     <ng-template #elseTemplate>

@@ -5,13 +5,27 @@
     <textarea name="" formControlName="description" class="inputTextarea input" placeholder="*Опис"></textarea>
    
     <ng-container *ngIf="!addedFile; else elseTemplate">
-      <input type="file" class="inputFile" (change)="loadImage($event)">
-      <progress class="progressBar" max="100" value="{{uploadPercent}}"></progress>
+      <div class="inputFileWrapper">
+        <div class="inputFileWrapper-unit">
+          <input type="file" class="inputFile" id="inputFile" (change)="loadImage($event)">
+          <label for="inputFile">Фото для сторінки акції</label>
+          <progress class="progressBar" max="100" value="{{uploadPercent}}"></progress>
+        </div>
+        <div class="inputFileWrapper-unit">
+          <input type="file" class="inputFile" id="inputFileHome" (change)="loadImageForHome($event)">
+          <label for="inputFileHome">Фото для домашньої сторінки</label>
+          <progress class="progressBar" max="100" value="{{uploadPercentIMGForHome}}"></progress>
+        </div>
+      </div>
     </ng-container>
     <ng-template #elseTemplate>
       <div class="imgWrapper">
         <img [src]="sendPromo ? sendPromo.img : urlPromo" class="img">
-        <span class="cross" (click)="deleteImg()">&times;</span>
+        <span class="cross" (click)="deleteImg()">&times;</span>  
+      </div>
+      <div class="imgWrapper">
+        <img [src]="sendPromo ? sendPromo.imgForHome : urlPromoHome" class="img">
+        <span class="cross" (click)="deleteImgHome()">&times;</span>  
       </div>
     </ng-template>
 

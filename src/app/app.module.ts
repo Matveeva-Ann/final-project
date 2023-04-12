@@ -4,6 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 import { HttpClientModule } from '@angular/common/http';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +21,6 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { PromotionsComponent } from './pages/promotions/promotions.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InfoComponent } from './pages/home/info/info.component';
-// import { DeliverySushiInfoComponent } from './pages/home/deliverySushiInfo/deliverySushiInfo.component';
 import { ModalWindowComponent } from './shared/components/modal-window/modal-window.component';
 import { NavPagesComponent } from './components/header/nav-pages/nav-pages.component';
 import { MapComponent } from './pages/delivery-payment/map/map.component';
@@ -41,6 +45,8 @@ import { SushiNavigationComponent } from './pages/home/sushi-navigation/sushi-na
 import { GoodsTableComponent } from './admin/pages/admin-goods/goods-table/goods-table.component';
 import { GoodsFormComponent } from './admin/pages/admin-goods/goods-form/goods-form.component';
 import { ProductCardComponent } from './pages/products/product-card/product-card.component';
+import { CarrouselComponent } from './pages/home/carrousel/carrousel.component';
+import { AddingPhotoComponent } from './shared/components/adding-photo/adding-photo.component';
 
 
 
@@ -78,13 +84,17 @@ import { ProductCardComponent } from './pages/products/product-card/product-card
     GoodsTableComponent,
     GoodsFormComponent,
     ProductCardComponent,
-  ],
+    CarrouselComponent,
+    AddingPhotoComponent,
+ ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
+    CarouselModule,
     TextMaskModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())

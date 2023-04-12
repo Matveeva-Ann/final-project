@@ -31,9 +31,34 @@
     outline: none;
   }
 }
-.inputFile{
+
+.inputFileWrapper{
+  display: flex;
+  gap: 10px;
   width: 100%;
-  padding: 10px;
+  margin: 20px 0;
+  &-unit{
+    width: 50%;
+  }
+}
+.inputFile{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  & + label{
+    background-color: $darkGrayText;
+    padding: 4px 22px;
+    font-size: 15px;
+    color: $white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid $darkGrayText;
+    transition: all 0.35s;
+    &:hover{
+      background-color: transparent;
+      color: $darkGrayText;
+    }
+  }
 }
 .save-btn{
   @extend %btnStyle;
@@ -46,7 +71,7 @@
   }
 }
 .imgWrapper{
-  width: 80%;
+  width: 100%;
   position: relative;
 }
 
@@ -55,7 +80,7 @@
   height: 10px;
   background-color: $mainColor;
   border-radius: 10px;
-
+  margin-top: 20px;
 }
 .progressBar::-webkit-progress-value {
   background-color: $mainColor;

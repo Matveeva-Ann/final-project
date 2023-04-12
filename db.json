@@ -27,59 +27,61 @@
   ],
   "promo": [
     {
-      "promoTitle": "Рол тижня",
-      "promoPath": "rus-kozhen-pyatyj-v-podarunok",
+      "promoTitle": "РОЛ ТИЖНЯ",
+      "promoPath": "actions",
       "description": "Щотижня діє знижка 50% на один з ролів у нашому меню.\n“Рол тижня” ви можете знайти на головній сторінці нашого сайту.\nЗнижка діє при мінімальній сумі замовлення 300 грн.\nЦя акція не поєднується з іншими акціями.",
-      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotions%2Fimgonline-com-ua-compressed-ryna9n84oqh1-scaled-697x379.jpg?alt=media&token=9b50c53d-9695-454a-9cdd-e9976dd11420",
-      "date": "2023-04-04T10:47:39.260Z",
-      "id": 1
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotions%2Fimgonline-com-ua-compressed-ryna9n84oqh1-scaled-697x379.jpg?alt=media&token=f01d7380-beae-4208-9342-d0d4ee682a9c",
+      "imgForHome": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotionsImgForHome%2FScreenshot_8.png?alt=media&token=e236055c-2fdf-410d-a509-fd512c4cf1fe",
+      "date": "2023-04-12T08:48:25.743Z",
+      "id": 7
     },
     {
-      "promoTitle": "3+1=5",
+      "promoTitle": "\"3+1=5\"",
       "promoPath": "kozhen-pyatyj-rol-v-podarunok",
       "description": "Замовляйте 5 ролів, а платіть за 4.\nЗамовляйте 10 ролів, а платіть за 8 і так далі.\nБезкоштовним вважається рол з найменшою вартістю.\nЦя акція не поєднується з іншими акціями.",
-      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotions%2Fimgonline-com-ua-compressed-ajbic74qfau00-scaled-697x379.jpg?alt=media&token=25af0937-02bc-4126-9bee-5a4eb0ac462d",
-      "date": "2023-04-04T10:47:39.260Z",
-      "id": 2
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotions%2Fimgonline-com-ua-compressed-ajbic74qfau00-scaled-697x379.jpg?alt=media&token=c1e942f3-c1a4-4e59-b072-7889e8d3fd8a",
+      "imgForHome": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotionsImgForHome%2FScreenshot_7.png?alt=media&token=60b8e4bb-b958-490f-a5c2-cf3da2baaa2d",
+      "date": "2023-04-12T08:51:47.271Z",
+      "id": 8
     },
     {
       "promoTitle": "Самовивіз",
       "promoPath": "samovyviz",
       "description": "Забирайте своє замовлення самостійно та отримуйте такі переваги:\n\nЗапечені моно макі з лососем у подарунок.\nВідсутність мінімальної суми замовлення.\nЧас очікування на замовлення до 30 хв.\nДля отримання акційного ролу у подарунок зберігається умова мінімальної суми замовлення 300 грн.\nЦя акція не поєднується з іншими акціями.",
-      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotions%2Fimgonline-com-ua-compressed-pa0akdpwddstmsv1-scaled-697x379.jpg?alt=media&token=1de0ee67-5ccd-47ba-9e7e-ce2f72e967ba",
-      "date": "2023-04-04T10:47:39.260Z",
-      "id": 3
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotions%2Fimgonline-com-ua-compressed-pa0akdpwddstmsv1-scaled-697x379.jpg?alt=media&token=8a14ba9b-c8ce-47e1-a07d-011ca6e18d08",
+      "imgForHome": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotionsImgForHome%2FScreenshot_5.png?alt=media&token=6f1f856c-0a2e-4e82-9f47-504591065d11",
+      "date": "2023-04-12T08:53:12.218Z",
+      "id": 9
     },
     {
       "promoTitle": "День народження з Моносуші",
       "promoPath": "den-narodzhennya-z-monosushi",
-      "description": "\nПри оформленні замовлення вкажіть промокод “День народження” та отримайте “Запечений сет” безкоштовно до Вашого замовлення.\nТермін дії акції – День народження плюс один день до та після свята.\nЦя акція починає діяти при мінімальній сумі замовлення 750 грн.\nДля отримання подарунку іменинник має показати кур’єру оригінал документу, що підтверджує його дату народження.\nЦя акція не поєднується з іншими акціями.",
-      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotions%2Fden-nar-scaled-697x379.jpg?alt=media&token=37f5b8b0-fab8-483d-947c-5c1fdd444ad5",
-      "date": "2023-04-05T10:47:39.260Z",
-      "id": 4
+      "description": "При оформленні замовлення вкажіть промокод “День народження” та отримайте “Запечений сет” безкоштовно до Вашого замовлення.\nТермін дії акції – День народження плюс один день до та після свята.\nЦя акція починає діяти при мінімальній сумі замовлення 750 грн.\nДля отримання подарунку іменинник має показати кур’єру оригінал документу, що підтверджує його дату народження.\nЦя акція не поєднується з іншими акціями.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotions%2Fden-nar-scaled-697x379.jpg?alt=media&token=8e963949-67da-43fd-b073-a2964f95e383",
+      "imgForHome": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotionsImgForHome%2FScreenshot_3.png?alt=media&token=a85a9723-2c1e-44de-88ce-5fc14776714e",
+      "date": "2023-04-12T08:54:01.722Z",
+      "id": 10
     },
     {
       "promoTitle": "Фотомарафон",
       "promoPath": "fotomarafon",
-      "description": "\nРозіграш проводиться в соціальній мережі – Instagram.\nЩоб стати учасником розіграшу варто зробити будь-який контент на задану тему з нашими ролами. Це може бути фото, відео, tik-tok.\nОбов’язково позначай нас на пості або сторі, щоб стати учасником марафону. ( інакше ми вас не побачимо )\nМарафон діє на постійній основі.\nПереможці визначаються два рази на місяць.\nПерше місце-Запечений сирний з лососем.\nДруге місце-Філадельфія з лососем.\nТретє місце-Запечені моно макі з креветкою.\nДеталі актуального марафону уточнюйте в нашому Instagram: @monosushi.com.ua",
-      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotions%2Fimgonline-com-ua-compressed-tn6e51pounmi-scaled-697x379.jpg?alt=media&token=02c10ced-8eb8-4432-a906-23ae8a8d5a8e",
-      "date": "2023-04-06T10:47:39.260Z",
-      "id": 5
+      "description": "Розіграш проводиться в соціальній мережі – Instagram.\nЩоб стати учасником розіграшу варто зробити будь-який контент на задану тему з нашими ролами. Це може бути фото, відео, tik-tok.\nОбов’язково позначай нас на пості або сторі, щоб стати учасником марафону. ( інакше ми вас не побачимо )\nМарафон діє на постійній основі.\nПереможці визначаються два рази на місяць.\nПерше місце-Запечений сирний з лососем.\nДруге місце-Філадельфія з лососем.\nТретє місце-Запечені моно макі з креветкою.\nДеталі актуального марафону уточнюйте в нашому Instagram: @monosushi.com.ua",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotions%2Fimgonline-com-ua-compressed-tn6e51pounmi-scaled-697x379.jpg?alt=media&token=a266243b-1137-4329-941d-a205fb01384d",
+      "imgForHome": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotionsImgForHome%2FScreenshot_6.png?alt=media&token=517236e6-efa2-494d-89a4-595c0abf095d",
+      "date": "2023-04-12T08:54:56.634Z",
+      "id": 11
+    },
+    {
+      "promoTitle": "ddew",
+      "promoPath": "fewf",
+      "description": "wef",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotions%2Fimgonline-com-ua-compressed-ajbic74qfau00-scaled-697x379.jpg?alt=media&token=8416498f-1d60-4294-8183-615dcc9cc00d",
+      "imgForHome": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/promotionsImgForHome%2FScreenshot_7.png?alt=media&token=2f50c302-cb97-4490-a710-3443a0c0e1f6",
+      "date": "2023-04-12T12:54:47.261Z",
+      "id": 12
     }
   ],
   "goods": [
-    {
-      "category": "Сети",
-      "title": "Запечений сет",
-      "path": "setu",
-      "ingredients": "Запечений сирний з креветкою Запечений моно з лососем",
-      "weight": "680",
-      "unit": "г",
-      "price": "570",
-      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/product%2F2.jpg?alt=media&token=3ca8a38a-74c6-4e36-a520-712b607b8ca1",
-      "count": 1,
-      "id": 2
-    },
     {
       "category": "Сети",
       "title": "Сет Каліфорнія",
@@ -202,13 +204,13 @@
     },
     {
       "category": "Сети",
-      "title": "ww",
-      "path": "ww",
-      "ingredients": "ww",
-      "weight": 222,
-      "unit": "мл",
-      "price": 22,
-      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/product%2Ffanta-033.jpg?alt=media&token=cfb59bb4-3edc-4784-9d0d-e3840f55665d",
+      "title": "AaXax",
+      "path": "A",
+      "ingredients": "a",
+      "weight": 2,
+      "unit": "г",
+      "price": 2,
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-1681d.appspot.com/o/product%2F1613666486_28-p-fon-dlya-linkedin-37.png?alt=media&token=e1d39478-1ebb-46ed-a4b8-e9256b812a09",
       "count": 1,
       "id": 14
     }

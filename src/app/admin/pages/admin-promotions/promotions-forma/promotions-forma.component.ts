@@ -26,9 +26,11 @@ export class PromotionsFormaComponent {
 
   public addedFile = false;
   public uploadPercent = 0;
+  public uploadPercentIMGForHome = 0;
   public editStatus = false;
   private idPromo = 0;
   public urlPromo = '';
+  public urlPromoHome = '';
 
   constructor(
     private promoService: PromotionsServiceService,
@@ -46,6 +48,7 @@ export class PromotionsFormaComponent {
       promoPath: [null, Validators.required],
       description: [null, Validators.required],
       img: [null, Validators.required],
+      imgForHome: [null, Validators.required],
       date: [null]
     });
     if (this.sendPromo) {
@@ -57,6 +60,7 @@ export class PromotionsFormaComponent {
         promoPath: this.sendPromo.promoPath,
         description: this.sendPromo.description,
         img: this.sendPromo.img,
+        imgForHome: this.sendPromo.imgForHome,
       });
     }
   }
@@ -82,10 +86,38 @@ export class PromotionsFormaComponent {
       this.promoForm.patchValue({
         img: data,
       });
-      this.addedFile = true;
+      if(this.urlPromo !== '' && this.urlPromoHome !== ''){
+        this.addedFile = true;
+      }
     });
   }
 
+  loadImageForHome(event:any): void{
+    const file = event.target.files[0];
+    this.uploadFileImgHome('promotionsImgForHome', file.name, file).then((data) => {
+      this.promoForm.patchValue({
+        imgForHome: data,
+      });
+      if(this.urlPromo !== '' && this.urlPromoHome !== ''){
+        this.addedFile = true;
+      }
+    
+    });
+  }
+
+  async uploadFileImgHome( folder: string, name: string, file: File | null): Promise<string> {
+    const path = `${folder}/${name}`;
+    if (file) {
+      const storageRef = ref(this.storage, path);
+      const task = uploadBytesResumable(storageRef, file);
+      percentage(task).subscribe((data) => {
+        this.uploadPercentIMGForHome = data.progress;
+      });
+      await task;
+      this.urlPromoHome = await getDownloadURL(storageRef);
+    }
+    return Promise.resolve(this.urlPromoHome);
+  }
   async uploadFile(
     folder: string,
     name: string,
@@ -118,4 +150,16 @@ export class PromotionsFormaComponent {
   private valueByControl(promo: string): string {
     return this.promoForm.get(promo)?.value;
   }
+
+  public deleteImgHome(): void {
+    const task = ref(this.storage, this.valueByControl('imgForHome'));
+    this.uploadPercentIMGForHome = 0;
+    deleteObject(task).then(() => {
+      this.addedFile = false;
+      this.promoForm.patchValue({
+        img: null,
+      });
+    });
+  }
+ 
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { deleteObject, getDownloadURL, percentage, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ICategoryResponse } from 'src/app/shared/interface/categoryInterface/category-interface';
@@ -37,6 +37,13 @@ export class GoodsFormComponent {
   ngOnInit(): void {
     this.getCategories();
     this.initGoodsForm();
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes["editProduct"].currentValue){
+      this.initGoodsForm();
+    }
+    
   }
 
   private initGoodsForm() {

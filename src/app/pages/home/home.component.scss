@@ -1,5 +1,9 @@
 
-
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
 app-sushi-navigation{
   @media (max-width:1200px) {
     display: none;
