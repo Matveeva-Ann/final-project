@@ -9,7 +9,6 @@ import {
 } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
-  IPromoRequest,
   IPromoResponse,
 } from 'src/app/shared/interface/promotionsInterface/promotions-interface';
 import { PromotionsServiceService } from 'src/app/shared/services/promotionsService/promotions-service.service';
@@ -41,15 +40,16 @@ export class PromotionsFormaComponent {
   ngOnInit(): void {
     this.initPromoForm();
   }
-
+ 
   private initPromoForm(): void {
     this.promoForm = this.fb.group({
       promoTitle: [null, Validators.required],
       promoPath: [null, Validators.required],
+      categoryPath: 'action',
       description: [null, Validators.required],
       img: [null, Validators.required],
       imgForHome: [null, Validators.required],
-      date: [null]
+      date: [null],
     });
     if (this.sendPromo) {
       this.editStatus = true;
@@ -66,7 +66,7 @@ export class PromotionsFormaComponent {
   }
 
   public addPromo() {
-    this.promoForm.value.date = new Date;
+    this.promoForm.value.date = new Date();
     if (this.sendPromo) {
       this.promoService
         .updatePromo(this.promoForm.value, this.idPromo)
@@ -86,26 +86,31 @@ export class PromotionsFormaComponent {
       this.promoForm.patchValue({
         img: data,
       });
-      if(this.urlPromo !== '' && this.urlPromoHome !== ''){
+      if (this.urlPromo !== '' && this.urlPromoHome !== '') {
         this.addedFile = true;
       }
     });
   }
 
-  loadImageForHome(event:any): void{
+  loadImageForHome(event: any): void {
     const file = event.target.files[0];
-    this.uploadFileImgHome('promotionsImgForHome', file.name, file).then((data) => {
-      this.promoForm.patchValue({
-        imgForHome: data,
-      });
-      if(this.urlPromo !== '' && this.urlPromoHome !== ''){
-        this.addedFile = true;
+    this.uploadFileImgHome('promotionsImgForHome', file.name, file).then(
+      (data) => {
+        this.promoForm.patchValue({
+          imgForHome: data,
+        });
+        if (this.urlPromo !== '' && this.urlPromoHome !== '') {
+          this.addedFile = true;
+        }
       }
-    
-    });
+    );
   }
 
-  async uploadFileImgHome( folder: string, name: string, file: File | null): Promise<string> {
+  async uploadFileImgHome(
+    folder: string,
+    name: string,
+    file: File | null
+  ): Promise<string> {
     const path = `${folder}/${name}`;
     if (file) {
       const storageRef = ref(this.storage, path);
@@ -115,6 +120,12 @@ export class PromotionsFormaComponent {
       });
       await task;
       this.urlPromoHome = await getDownloadURL(storageRef);
+      if (this.uploadPercent===100 && this.uploadPercentIMGForHome === 100){
+         this.addedFile = true;
+      }
+      if (this.sendPromo) {
+        this.sendPromo.img = this.urlPromoHome;
+      }
     }
     return Promise.resolve(this.urlPromoHome);
   }
@@ -132,34 +143,38 @@ export class PromotionsFormaComponent {
       });
       await task;
       this.urlPromo = await getDownloadURL(storageRef);
-      console.log(this.urlPromo);
+      if (this.uploadPercent===100 && this.uploadPercentIMGForHome === 100){
+        this.addedFile = true;
+     }
+      if (this.sendPromo) {
+        this.sendPromo.img = this.urlPromo;
+      }
     }
     return Promise.resolve(this.urlPromo);
   }
 
-  public deleteImg(): void {
-    const task = ref(this.storage, this.valueByControl('img'));
+  public deleteImg(passedValue: string): void {
+    const task = ref(this.storage, this.valueByControl(passedValue));
     this.uploadPercent = 0;
     deleteObject(task).then(() => {
       this.addedFile = false;
-      this.promoForm.patchValue({
-        img: null,
-      });
+      if (passedValue === 'img') {
+        this.uploadPercent = 0;
+        this.uploadPercentIMGForHome = 100;
+        this.promoForm.patchValue({
+          img: null,
+        });
+      } else {
+        this.uploadPercent = 100;
+        this.uploadPercentIMGForHome = 0;
+        this.promoForm.patchValue({
+          imgForHome: null,
+        });
+      }
     });
   }
+
   private valueByControl(promo: string): string {
     return this.promoForm.get(promo)?.value;
   }
-
-  public deleteImgHome(): void {
-    const task = ref(this.storage, this.valueByControl('imgForHome'));
-    this.uploadPercentIMGForHome = 0;
-    deleteObject(task).then(() => {
-      this.addedFile = false;
-      this.promoForm.patchValue({
-        img: null,
-      });
-    });
-  }
- 
 }

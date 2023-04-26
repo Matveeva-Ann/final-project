@@ -7,7 +7,7 @@ import { IGoodsRequest, IGoodsResponse } from '../../interface/goodsInterface/go
 @Injectable({
   providedIn: 'root'
 })
-export class GoodsServiceService {
+export class GoodsServiceService{
   private url = environment.BACKEND_URL;
   private api = {goods: `${this.url}/goods`}
 
@@ -16,6 +16,15 @@ export class GoodsServiceService {
   getGoods(): Observable<IGoodsResponse[]>{
     return this.http.get<IGoodsResponse[]>(this.api.goods)
   }
+
+  getGoodsByCategory (name: string): Observable<IGoodsResponse[]>{
+    return this.http.get<IGoodsResponse[]>(`${this.api.goods}?categoryPath=${name}`)
+  }
+
+  getOneGood(id: number): Observable<IGoodsResponse>{
+    return this.http.get<IGoodsResponse>(`${this.api.goods}/${id}`);
+  }
+
 
   addGoods(goods: IGoodsRequest): Observable<IGoodsRequest>{
     return this.http.post<IGoodsRequest>(this.api.goods, goods);

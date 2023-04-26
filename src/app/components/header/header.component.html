@@ -25,14 +25,20 @@
     <img src="/assets/img/user.svg" alt="user" class="enter-icon">
   </div>
 
-  <div class="basket">
+  
+  <div class="basket" (click)="showBasketProduct = !showBasketProduct">
     <div class="basket-wrapper">
       <img class="basket-wrapper-img" src="/assets/img/basket.svg" alt="basket">
-      <span class="basket-wrapper-badge">0</span>
+      <span class="basket-wrapper-badge">{{ countProd }}</span>
     </div>
-    <span class="basket-text">0 грн.</span>
+    <span class="basket-text">{{ priseProd }} грн.</span>
   </div>
+  <ng-container *ngIf="showBasketProduct;">
+    <app-basket (click)="closeBasket()" (changeBasket)="changeBasket()"></app-basket>
+  </ng-container>
+ 
+  
 
 </div>
 
-<app-will-call *ngIf="willCall" [willCall] = 'willCall' (closeFormCall)="closeFormCall($event)"></app-will-call>
+<app-will-call *ngIf="willCall" [willCall] = 'willCall' (closeFormCall)="closeFormCall()"></app-will-call>

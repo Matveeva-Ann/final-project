@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IGoodsResponse } from 'src/app/shared/interface/goodsInterface/goods-interface';
 import { GoodsServiceService } from 'src/app/shared/services/goodsSevice/goods-service.service';
 
@@ -8,20 +8,6 @@ import { GoodsServiceService } from 'src/app/shared/services/goodsSevice/goods-s
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent {
+  @Input() userProducts: IGoodsResponse[] = []; 
 
-  goodsArr: IGoodsResponse[]=[]
-
-  constructor(private goodsService:GoodsServiceService){
-
-  }
-
-  ngOnInit(): void {
-    this.initGoods();
-  }
-
-  initGoods():void{
-    this.goodsService.getGoods().subscribe((data)=>{
-      this.goodsArr = data;
-    })
-  }
 }

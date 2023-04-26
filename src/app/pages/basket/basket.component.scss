@@ -1,0 +1,88 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.container{
+  position: absolute;
+  width: 665px;
+  top: 0;
+  right: 0;
+  background-color: $white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  max-height: calc(100vh - 95px);
+  overflow: auto;
+  @media (max-width: 1200px){
+    max-height: calc(100vh - 60px);
+  }
+}
+.list{
+  list-style: none;
+
+  &-item{
+    padding: 10px 20px;
+    border-top: 1px solid $gray;
+    min-height: 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-img{
+    max-width: 122px;
+    height: fit-content;
+  }
+  &-title{
+    padding-left: 20px;
+    font-size: 16px;
+    line-height: 1em;
+  }
+
+}
+
+.product-wrapper{
+  display: flex;
+  align-items: center;
+}
+
+.trash{
+  width: 27px;
+  height: 30px;
+  padding: 3px;
+  margin-left: 20px;
+  cursor: pointer;
+  &:active{
+    transform: translate3d(0, 0.1em, 0);
+  }
+}
+
+.order{
+  max-height: 95px;
+  height: 100%;
+  width: 100%;
+  background-color: $mainColor;
+  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &-sum{
+    font-size: 18px;
+    font-weight: 300;
+    color: #252525;
+  }
+  &-btn{
+    @extend %btnStyle;
+    background-color: $white;
+    padding: 16px 22px;
+    font-size: 16px;
+    &:hover{
+      background-color: $white;
+    }
+  }
+}
+.weight{
+  font-weight: 700;
+  font-size: 23px;
+  color: $black;
+  margin: 0 4px;
+}

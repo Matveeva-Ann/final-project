@@ -15,8 +15,6 @@ export class GoodsFormComponent {
   @Input() editProduct?: IGoodsResponse = undefined;
   @Output() addChangProduct = new EventEmitter<void>();
 
-  
-
   public allCategories: ICategoryResponse[] = [];
   public goodsForm!: FormGroup;
   public uploadPercent = 0;
@@ -26,7 +24,7 @@ export class GoodsFormComponent {
   public url = '';
   private idEditedProduct = 0;
   public category = '';
-
+ public sendEditImg!: string
   constructor(
     private categoryService: CategoryServiceService,
     private goodsService: GoodsServiceService,
@@ -43,19 +41,19 @@ export class GoodsFormComponent {
     if (changes["editProduct"].currentValue){
       this.initGoodsForm();
     }
-    
   }
 
   private initGoodsForm() {
     this.goodsForm = this.fb.group({
       category: ["*Виберіть категорію", Validators.required],
+      categoryPath: [null],
       title: [null, Validators.required],
       path: [null, Validators.required],
       ingredients: [null],
       weight: [null, Validators.required],
       unit: "г",
       price: [null, Validators.required],
-      img: [null, Validators.required],
+      img: [null],
       count: 1,
     });
     if(this.editProduct){
@@ -63,8 +61,10 @@ export class GoodsFormComponent {
       this.editStatus = true;
       this.category = this.editProduct.category;
       this.idEditedProduct = this.editProduct.id;
+      this.url = this.editProduct.img;
       this.goodsForm.patchValue({
         category: this.editProduct.category,
+        categoryPath: this.editProduct.categoryPath,
         title: this.editProduct.title,
         path: this.editProduct.path,
         ingredients: this.editProduct.ingredients,
@@ -78,6 +78,12 @@ export class GoodsFormComponent {
   }
   
   public addGoods() {
+    const index = this.allCategories.findIndex(category => category.title === this.goodsForm.value.category);
+    console.log(index)
+    this.goodsForm.patchValue({
+       categoryPath: this.allCategories[index].path,
+    })
+
     if (this.editProduct){
       this.goodsService.updateGoods(this.goodsForm.value, this.idEditedProduct).subscribe();
     }else{
@@ -107,6 +113,8 @@ export class GoodsFormComponent {
   }
   
   valueByControl(control: string): string {
+    console.log(this.goodsForm.get('img')?.value);
+    this.sendEditImg = this.goodsForm.get('img')?.value;
     return this.goodsForm.get(control)?.value;
   }
 
@@ -130,6 +138,9 @@ export class GoodsFormComponent {
       });
       await task;
       this.url = await getDownloadURL(storageRef);
+      if(this.editProduct){
+       this.editProduct.img =  this.url;
+      }
     }
     return Promise.resolve(this.url);
   }

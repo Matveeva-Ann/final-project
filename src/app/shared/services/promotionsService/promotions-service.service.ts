@@ -17,6 +17,10 @@ export class PromotionsServiceService {
     return this.http.get<IPromoResponse[]>(this.api.promotions);
   }
 
+  getOnePromotion(id: number): Observable<IPromoResponse>{
+    return this.http.get<IPromoResponse>(`${this.api.promotions}/${id}`);
+  }
+
   addPromo(promo: IPromoRequest): Observable<IPromoRequest>{
     return this.http.post<IPromoRequest>(this.api.promotions, promo);
   }

@@ -47,6 +47,12 @@ import { GoodsFormComponent } from './admin/pages/admin-goods/goods-form/goods-f
 import { ProductCardComponent } from './pages/products/product-card/product-card.component';
 import { CarrouselComponent } from './pages/home/carrousel/carrousel.component';
 import { AddingPhotoComponent } from './shared/components/adding-photo/adding-photo.component';
+import { TableComponent } from './admin/pages/table/table.component';
+import { ProductInfoComponent } from './pages/product-info/product-info.component';
+import { PromotionsInfoComponent } from './pages/promotions-info/promotions-info.component';
+import { ControlsComponent } from './shared/components/controls/controls.component';
+import { BasketComponent } from './pages/basket/basket.component';
+import { BreadCrumbsComponent } from './shared/components/bread-crumbs/bread-crumbs.component';
 
 
 
@@ -86,6 +92,12 @@ import { AddingPhotoComponent } from './shared/components/adding-photo/adding-ph
     ProductCardComponent,
     CarrouselComponent,
     AddingPhotoComponent,
+    TableComponent,
+    ProductInfoComponent,
+    PromotionsInfoComponent,
+    ControlsComponent,
+    BasketComponent,
+    BreadCrumbsComponent,
  ],
   imports: [
     BrowserModule,

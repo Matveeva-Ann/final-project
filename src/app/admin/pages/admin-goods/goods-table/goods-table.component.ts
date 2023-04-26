@@ -2,6 +2,11 @@ import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/
 import { IGoodsResponse } from 'src/app/shared/interface/goodsInterface/goods-interface';
 import { GoodsServiceService } from 'src/app/shared/services/goodsSevice/goods-service.service';
 
+export type TitleKeysGoods = {
+  title: string;
+  key: keyof IGoodsResponse;
+
+}
 @Component({
   selector: 'app-goods-table',
   templateUrl: './goods-table.component.html',
@@ -13,6 +18,30 @@ export class GoodsTableComponent {
   @Input() productChanged?: boolean;
   public goodsArr: IGoodsResponse[] = [];
 
+
+  public titleKeysArr: TitleKeysGoods[] = [
+    {
+      title: 'Категорія',
+      key: 'category',
+    },
+    {
+      title: 'Назва',
+      key: 'title',
+    },
+    {
+      title: 'Ітгредієнти',
+      key: 'ingredients',
+    },
+    {
+      title: 'Вага',
+      key: 'weight',
+    },
+    {
+      title: 'Ціна',
+      key: 'price',
+    },
+  ];
+ 
   constructor(private goodsService: GoodsServiceService) {}
 
   ngOnInit(): void {
@@ -29,10 +58,18 @@ export class GoodsTableComponent {
       this.goodsArr = data;
     });
   }
-  editProduct(product: IGoodsResponse) {
+  // editProduct(product: IGoodsResponse) {
+  //   this.sendEditProduct.emit(product);
+  // }
+  // deleteProduct(product: IGoodsResponse) {
+  //   this.goodsService.deleteGoods(product.id).subscribe(() => {
+  //     this.getAllGoods();
+  //   });
+  // }
+  editPress(product:any){
     this.sendEditProduct.emit(product);
   }
-  deleteProduct(product: IGoodsResponse) {
+  deletePress(product: any){
     this.goodsService.deleteGoods(product.id).subscribe(() => {
       this.getAllGoods();
     });

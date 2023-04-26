@@ -13,6 +13,11 @@ import { AdminCategoryComponent } from './admin/pages/admin-category/admin-categ
 import { AdminPromotionsComponent } from './admin/pages/admin-promotions/admin-promotions.component';
 import { OfertaComponent } from './pages/oferta/oferta.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { ProductInfoComponent } from './pages/product-info/product-info.component';
+import { ProductInfoResolver } from './shared/services/product/product-info.resolver';
+import { PromotionsInfoComponent } from './pages/promotions-info/promotions-info.component';
+import { PromoResolver } from './shared/services/resolver/promo.resolver';
+
 
 
 
@@ -20,8 +25,14 @@ const routes: Routes = [
   {path:'deliveryPayment', component: DeliveryPaymentComponent},
   {path:'aboutUs', component: AboutUsComponent},
   {path:'promotions', component: PromotionsComponent},
+  {path:'promotions/:id', component: PromotionsInfoComponent, resolve:{
+    promoInfo: PromoResolver
+  }},
   {path:'', component: HomeComponent},
-  {path:'products', component: ProductsComponent},
+  {path:'products/:category', component: ProductsComponent},
+  {path:'products/:category/:id', component: ProductInfoComponent, resolve:{
+    productInfo: ProductInfoResolver,
+  }},
   {path:'oferta', component: OfertaComponent},
   {path:'admin', component: AdminComponent, children:[
          {path:'category', component: AdminCategoryComponent},

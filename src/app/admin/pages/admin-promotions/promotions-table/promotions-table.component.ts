@@ -31,5 +31,5 @@ export class PromotionsTableComponent {
     this.promoService.deletePromo(promo.id).subscribe(() => {
       this.loadPromo();
     });
-  }
+  }  
 }

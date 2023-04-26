@@ -1,0 +1,18 @@
+<div class="container" (click)="stopPropagation($event)">
+  <ul class="list">
+    <li class="list-item" *ngFor="let product of orderProducts">
+      <div class="product-wrapper">
+        <img [src]="product.img" alt="" class="list-img">
+        <p class="list-title">{{ product.title }}</p>
+      </div>
+      <div class="product-wrapper">
+        <app-controls [currentProduct]="product" [styleBasket]="styleBasket"></app-controls>
+        <img src="/assets/img/trash.svg" alt="trash" class="trash" (click)="deleteProduct(product)">
+      </div>
+    </li>
+  </ul>
+  <div class="order">
+    <p class="order-sum">Сума:<span class="weight">{{ priseProd }}</span>грн</p>
+    <button type="button" class="order-btn">Оформити замовлення</button>
+  </div>
+</div>

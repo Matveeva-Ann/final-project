@@ -2,7 +2,7 @@
 @import "/src/app/shared/styles/mixins";
 
 .container{
-  margin-top: 40px;
+  margin: 40px 0;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -13,13 +13,17 @@
   border-top: 5px solid $mainColor;
   padding-top: 5px;
 }
-app-product-card{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
+
 .cards{
   margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
+}
+.sushiNavigation{
+  width: 100%;
+  min-height: 60px;
+  margin: 40px 0 20px;
+  @media (max-width: 1200px){
+    display: none;
+  }
 }

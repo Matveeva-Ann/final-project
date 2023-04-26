@@ -1,6 +1,9 @@
 <div class="container">
-  <h2 class="title">Продукти</h2>
-</div>
-<div class="cards">
-  <app-product-card></app-product-card>
+  <h2 class="title">{{ categoryTitle }}</h2>
+  <div class="sushiNavigation" *ngIf="showSushiNavigation">
+    <app-sushi-navigation></app-sushi-navigation>
+  </div>
+  <div class="cards">
+    <app-product-card [userProducts]="userProducts"></app-product-card>
+  </div>
 </div>

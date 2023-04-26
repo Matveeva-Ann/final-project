@@ -1,23 +1,7 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th class="header-th">№</th>
-      <th class="header-th">Назва</th>
-      <th class="header-th">Шлях</th>
-      <th class="header-th">Картинка</th>
-      <th class="header-th header-btn">Дії</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let category of categoryArr; index as i">
-      <td class="body-td">{{i+1}}</td>
-      <td class="body-td">{{category.title}}</td>
-      <td class="body-td">{{category.path}}</td>
-      <td class="body-td"><img [src]="category.img" alt="" class="body-td-img"></td>
-      <td class="body-td">
-        <button class="edit body-td-btn" (click)="editCategory(category)">Редагувати</button>
-        <button class="delete body-td-btn" (click)="deleteCategory(category)">Видалити</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<app-table 
+      [titleKeysArr]="titleKeysArr" 
+      [dataArr]="categoryArr"
+      (editPress)="editPress($event)"
+      (deletePress)="deletePress($event)">
+</app-table>
+

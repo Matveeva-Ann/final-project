@@ -15,6 +15,7 @@
     @include size(100%, 60px);
   }
 }
+
 .logo {
   @extend %flexCenter;
   height: 100%;
@@ -199,6 +200,18 @@ app-burger-menu{
   }
 }
 
+app-basket{
+  position: fixed;
+  top: 95px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $blackOpacity;
+  @media (max-width: 1200px) {
+    top: 60px;
+  }
+}
+
 .burger-menu {
   @include size(230px, 250px);
   position: absolute;
@@ -229,6 +242,7 @@ app-burger-menu{
     }
   }
 }
+
 
 .black {
   color: $black;

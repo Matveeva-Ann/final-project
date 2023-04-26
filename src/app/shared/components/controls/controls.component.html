@@ -1,0 +1,22 @@
+
+<ng-container *ngIf="styleBasket; else style">
+  <div class="controls">
+    <p class="controls-prise"><span class="weight">{{ currentProduct.price*currentProduct.count }}</span> грн.</p>
+    <div class="quantity">
+      <span class="quantity-unit" (click)="productCount(currentProduct, false)">-</span>
+      <span>{{currentProduct.count}}</span>
+      <span class="quantity-unit" (click)="productCount(currentProduct, true)">+</span>
+    </div>
+    <button type="button" class="controls-btn" (click)="addToBasket(currentProduct)">замовити</button>
+  </div>
+</ng-container>
+<ng-template #style>
+  <div class="controlsBasket">
+    <div class="quantityBasket">
+      <span class="quantityBasket-unit" (click)="productCountBasket(currentProduct, false)">-</span>
+      <span>{{currentProduct.count}}</span>
+      <span class="quantityBasket-unit" (click)="productCountBasket(currentProduct, true)">+</span>
+    </div>
+    <p class="controlsBasket-prise"><span class="weight">{{ currentProduct.price*currentProduct.count }}</span> грн.</p>
+  </div>
+</ng-template>

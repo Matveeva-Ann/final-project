@@ -1,6 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {ICategoryResponse} from 'src/app/shared/interface/categoryInterface/category-interface';
+import { ICategoryResponse } from 'src/app/shared/interface/categoryInterface/category-interface';
 import { CategoryServiceService } from 'src/app/shared/services/categoryService/category-service.service';
+
+
+export type TitleKeys = {
+  title: string;
+  key: keyof ICategoryResponse;
+}
 
 @Component({
   selector: 'app-category-table',
@@ -9,6 +15,19 @@ import { CategoryServiceService } from 'src/app/shared/services/categoryService/
 })
 export class CategoryTableComponent {
   @Output() editedCategory = new EventEmitter<ICategoryResponse>();
+
+  public titleKeysArr: TitleKeys[] = [
+    {
+      title: 'Назва',
+      key: 'title',
+    },
+    {
+      title: 'Шлях',
+      key: 'path',
+    },
+    
+  ];
+
 
   public categoryArr: ICategoryResponse[] = [];
 
@@ -24,11 +43,11 @@ export class CategoryTableComponent {
     });
   }
 
-  editCategory(category:ICategoryResponse):void{
+  editPress(category: ICategoryResponse): void {
     this.editedCategory.emit(category);
   }
 
-  deleteCategory(category: ICategoryResponse): void {
+  deletePress(category: ICategoryResponse): void {
     this.categoryService.deleteCategory(category.id).subscribe(() => {
       this.loadCategories();
     });

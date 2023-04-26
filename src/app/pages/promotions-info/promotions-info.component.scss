@@ -1,0 +1,63 @@
+@import "/src/app/shared/styles/variables";
+@import "/src/app/shared/styles/mixins";
+
+.container{
+  margin: 40px auto 90px;
+  height: 100%;
+  width: 770px;
+  margin-bottom: 140px;
+}
+.title-wrapper{
+  margin: 0 auto;
+  width: 100%;
+  max-height: 180px;
+  height: 100%;
+  background-color: $mainColor;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 65px;
+  margin-bottom: 40px;
+}
+.title{
+  display: block;
+  border-top: 5px solid;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+}
+.text{
+  font-size: 18px;
+  line-height: 25px;
+  color: $darkGrayText;
+  list-style: none;
+}
+li{
+  margin: 10px 0;
+}
+
+.listStyle-elem::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid $mainColor;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.listStyle-elem {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: $mainColor;
+  position: relative;
+  margin-right: 13px;
+  z-index: -1;
+}

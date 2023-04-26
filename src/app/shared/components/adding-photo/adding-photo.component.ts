@@ -30,15 +30,7 @@ export class AddingPhotoComponent {
 
   constructor(private storage: Storage) {}
 
-  ngOnChanges(changes: any): void {
-    if(changes.displayPicture){
-      this.addedFile = true;
-      this.editProduct = this.displayPicture;
-    }
-  }
-
-  async deleteImg() {
-    await this.sendEditImg;
+  deleteImg() {
     console.log(this.sendEditImg)
     const task = ref(this.storage, this.sendEditImg);
     this.uploadPercent = 0;
@@ -47,6 +39,17 @@ export class AddingPhotoComponent {
       this.sendImgToForm.emit('null');
     });
   }
+
+
+
+  ngOnChanges(changes: any): void {
+    if(changes.displayPicture){
+      this.addedFile = true;
+      this.editProduct = this.displayPicture;
+    }
+  }
+
+
 
   addFile(event: any) {
     const file = event.target.files[0];

@@ -1,0 +1,10 @@
+<app-bread-crumbs [way]="currentPromo"></app-bread-crumbs>
+
+<div class="container">
+  <div class="title-wrapper">
+    <h1 class="title">{{currentPromo.promoTitle}}</h1>
+  </div>
+  <ul class="text">
+    <li *ngFor="let sentence of textArr"> <span class="listStyle-elem"></span>{{ sentence }}</li>
+  </ul>  
+</div>

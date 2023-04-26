@@ -1,6 +1,6 @@
 <div class="container">
   <form name="goodsForm" [formGroup]="goodsForm" class="goodsForm" (ngSubmit)="addGoods()">
-    <select class="input" formControlName="category" >
+    <select class="input" formControlName="category">
       <option value="*Виберіть категорію" selected disabled>*Виберіть категорію</option>
       <option [value]="category.title" *ngFor="let category of allCategories">{{category.title}}</option>
     </select>
@@ -27,7 +27,7 @@
         <span class="cross" (click)="deleteImg()">&times;</span>
       </div>
     </ng-template>
-    <!-- <app-adding-photo (sendImgToForm)="sendImgToForm($event)" (sendUrlToForm)="sendUrlToForm($event)" [sendEditImg]="sendEditImg" [displayPicture]="displayPicture"></app-adding-photo> -->
+    <!-- <app-adding-photo (sendImgToForm)="sendImgToForm($event)" (sendUrlToForm)="sendUrlToForm($event)" [sendEditImg]="sendEditImg"></app-adding-photo> -->
 
     <button type="submit" class="save-btn" [disabled]="goodsForm.invalid" >{{editStatus ? 'Зберезти зміни' : 'зберегти'}}</button>
   </form>

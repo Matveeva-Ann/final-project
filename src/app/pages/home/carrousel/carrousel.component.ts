@@ -19,7 +19,6 @@ export class CarrouselComponent {
 
   getPromo(): void {
     this.promotionsService.getPromotions().subscribe((data) => {
-      console.log(data);
       this.promoArr = data;
     });
   }

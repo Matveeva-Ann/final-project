@@ -1,6 +1,7 @@
 
 export interface IGoodsRequest {
   category: string;
+  categoryPath: string;
   title: string;
   path: string;
   ingredients: string;

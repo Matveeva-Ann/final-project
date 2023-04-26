@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ICategoryResponse } from 'src/app/shared/interface/categoryInterface/category-interface';
+import { CategoryServiceService } from 'src/app/shared/services/categoryService/category-service.service';
 
 @Component({
   selector: 'app-admin-category',
@@ -7,9 +8,22 @@ import { ICategoryResponse } from 'src/app/shared/interface/categoryInterface/ca
   styleUrls: ['./admin-category.component.scss']
 })
 export class AdminCategoryComponent {
-  // private tableArrCategory: string[] = ["№", "Назва", "Шлях", "Картинка", "Дії"];
   public addCategory= true;
   public sendCategoryEdit?: ICategoryResponse;
+  public categoryArr: ICategoryResponse[]=[]
+  
+  constructor(private categoryService: CategoryServiceService) {}
+
+  ngOnInit(): void {
+    this.loadCategories();
+  }
+
+ async loadCategories() {
+      this.categoryService.getCategory().subscribe((data) => {
+        this.categoryArr = data;
+      });
+    }
+
 
   public addCategoryBtn(){
    this.addCategory = !this.addCategory;

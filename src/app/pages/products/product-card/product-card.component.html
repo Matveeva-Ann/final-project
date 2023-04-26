@@ -1,21 +1,17 @@
-<div class="container-wrapper">
-  <div class="container"  *ngFor="let good of goodsArr">
-    <div class="imgWrapper">
-      <img [src]="good.img" alt="" class="img">
-    </div>
-    <h3 class="title">{{good.title}}</h3>
-    <div class="description-wrapper">
-      <p class="description">{{good.ingredients}}</p>
-      <span class="weight">{{good.weight + good.unit}}</span>
-    </div>
-    <div class="order-wrapper">
-      <span class="price">{{good.price}} грн.</span>
-      <div class="quantity">
-        <span class="quantity-unit">-</span>
-        <span>1</span>
-        <span class="quantity-unit">+</span>
+<div class="wrapper">
+  <div class="container-wrapper">
+    <div class="container" *ngFor="let good of userProducts">
+      <div class="imgWrapper" [routerLink]="[ '/products/'+good.categoryPath, good.id ]">
+        <img [src]="good.img" alt="" class="img">
       </div>
-      <button type="button" class="order-brn">замовити</button>
+      <h3 class="title" [routerLink]="[ '/products/'+good.categoryPath, good.id ]">{{good.title}}</h3>
+      <div class="description-wrapper">
+        <p class="description">{{good.ingredients}}</p>
+        <span class="weight">{{good.weight + good.unit}}</span>
+      </div>
+
+      <app-controls [currentProduct]="good"></app-controls>
+
     </div>
   </div>
 </div>

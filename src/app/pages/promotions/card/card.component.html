@@ -1,6 +1,6 @@
 <div class="card" *ngFor="let card of cardsArr">
-  <img [src]="card.img" class="card-img">
+  <img [src]="card.img" class="card-img" [routerLink]="[ '/promotions', card.id ]">
   <p class="card-title">{{ card.promoTitle }}</p>
   <hr class="card-hr">
-  <button class="card-btn">дізнатись більше</button>
+  <button class="card-btn" [routerLink]="[ '/promotions', card.id ]">дізнатись більше</button>
 </div>

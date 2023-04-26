@@ -3,7 +3,7 @@
     <img src="/assets/img/nav-img-gift.svg" alt="" class="page-img">
     <span class="page-title">Акції</span>
   </a>
-  <a class="page" [routerLink]="[ 'products']" *ngFor="let category of categoriesArr">
+  <a class="page" [routerLink]="[ 'products', category.path ]" *ngFor="let category of categoriesArr">
     <img [src]="category.img" alt="" class="page-img">
     <span class="page-title">{{category.title}}</span>
   </a>

@@ -2,6 +2,7 @@
   <form name="promoForm" class="promoForm" [formGroup]="promoForm" (ngSubmit)="addPromo()">
     <input type="text" formControlName="promoTitle" class="input" placeholder="*Назва">
     <input type="text" formControlName="promoPath" class="input" placeholder="*Шлях">
+    <p class="tip"> *Після речення використовуйте знак '<span class="coralColor">$</span>' для того, щоб перенести його на новий рядок.</p>
     <textarea name="" formControlName="description" class="inputTextarea input" placeholder="*Опис"></textarea>
    
     <ng-container *ngIf="!addedFile; else elseTemplate">
@@ -21,11 +22,11 @@
     <ng-template #elseTemplate>
       <div class="imgWrapper">
         <img [src]="sendPromo ? sendPromo.img : urlPromo" class="img">
-        <span class="cross" (click)="deleteImg()">&times;</span>  
+        <span class="cross" (click)="deleteImg('img')">&times;</span>  
       </div>
       <div class="imgWrapper">
         <img [src]="sendPromo ? sendPromo.imgForHome : urlPromoHome" class="img">
-        <span class="cross" (click)="deleteImgHome()">&times;</span>  
+        <span class="cross" (click)="deleteImg('imgForHome')">&times;</span>  
       </div>
     </ng-template>
 

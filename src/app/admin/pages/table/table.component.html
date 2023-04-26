@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th class="header-th">№</th>
+      <th class="header-th" *ngFor="let unit of titleKeysArr">{{unit.title}}</th>
+      <th class="header-th">Картинка</th>
+      <th class="header-th">Дії</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let elem of dataArr; index as i">
+      <td class="body-td">{{i+1}}</td>
+      <td class="body-td"  *ngFor="let element of titleKeysArr">{{elem[element.key]}}</td>
+      <td class="body-td">
+        <img [src]="elem.img" alt="" class="body-td-img">
+      </td>
+      <td class="body-td">
+        <button class="edit body-td-btn" (click)="edit(elem)">Редагувати</button>
+        <button class="delete body-td-btn" (click)="delete(elem)" >Видалити</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+

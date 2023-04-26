@@ -1,0 +1,15 @@
+<app-bread-crumbs [way]="currentProduct"></app-bread-crumbs>
+
+<div class="container">
+  <div class="product-img">
+    <img [src]="currentProduct.img" [alt]="currentProduct.title" class="img">
+  </div>
+  <div class="product-info">
+    <h2 class="product-info-title">{{ currentProduct.title }}</h2>
+    <p class="product-info-consists" *ngIf="showIngredients"><span class="mainColor weight">Склад:</span> {{
+      currentProduct.ingredients }}</p>
+    <p class="product-info-weight"><span class="mainColor weight">Вага:</span> {{ currentProduct.weight }} {{
+      currentProduct.unit}}</p>
+    <app-controls [currentProduct]="currentProduct"></app-controls>
+  </div>
+</div>
